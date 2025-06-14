@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        <div className="text-2xl font-bold text-[#1c1c1c]">Vishoka Foundation</div>
+        <div className="text-2xl font-bold text-[#1c1c1c]">Visoka Welfare Foundation</div>
         <ul className="flex gap-6 text-[#1c1c1c] font-medium">
           <li><Link href="/">Home</Link></li>
           <li><Link href="/about">About</Link></li>
