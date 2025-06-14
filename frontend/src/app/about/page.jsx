@@ -1,9 +1,16 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar'; // ✅ Imported Navbar
 
 const About = () => {
   return (
     <div className="text-gray-800">
+      {/* NAVBAR */}
+      <Navbar /> {/* ✅ Navbar added */}
+
       {/* HERO SECTION */}
       <section className="bg-gradient-to-r from-indigo-800 to-purple-800 text-white py-16 px-6">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
@@ -187,13 +194,7 @@ const About = () => {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-black text-white text-center py-6">
-        <p className="text-lg font-semibold">🌍 Vishoka Welfare Foundation</p>
-        <p className="text-sm mt-2 text-gray-400">
-          Creating a world where every individual thrives with dignity.
-        </p>
-        <p className="text-xs mt-1 text-gray-500">© 2025 Vishoka. All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   );
 };

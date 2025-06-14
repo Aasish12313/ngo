@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Link from 'next/link';
 
 const Navbar = () => {
   return (
@@ -7,8 +8,8 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
         <div className="text-2xl font-bold text-[#1c1c1c]">Vishoka Foundation</div>
         <ul className="flex gap-6 text-[#1c1c1c] font-medium">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
+          <li><Link href="/">Home</Link></li>
+          <li><Link href="/about">About</Link></li>
           <li><a href="#">Programs</a></li>
           <li><a href="#">Impact</a></li>
           <li><a href="#">Stories</a></li>

@@ -1,6 +1,8 @@
 'use client';
 import React from 'react';
-import Navbar from '../components/Navbar';
+import Link from 'next/link'; // ✅ Import Link
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import { motion } from 'framer-motion';
 
 export default function Home() {
@@ -38,12 +40,24 @@ export default function Home() {
           >
             Join Vishoka Foundation in our mission to bring lasting change and hope.
           </motion.p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md"
-          >
-            Become a Volunteer
-          </motion.button>
+          <div className="flex gap-4 justify-center">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md"
+            >
+              Become a Volunteer
+            </motion.button>
+            
+            {/* ✅ ABOUT US BUTTON */}
+            <Link href="/about">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                className="bg-white text-orange-500 hover:bg-gray-100 px-6 py-3 rounded-md font-semibold"
+              >
+                Learn More About Us
+              </motion.button>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -71,7 +85,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Gallery Section (Slideshow with Framer Motion) */}
+      {/* Gallery Section */}
       <section className="py-16 px-6 md:px-16 bg-[#f9f3ef] text-center">
         <h2 className="text-3xl font-bold mb-8">Gallery Highlights</h2>
         <div className="overflow-hidden w-full">
@@ -83,8 +97,8 @@ export default function Home() {
             {galleryImages.concat(galleryImages).map((i, index) => (
               <motion.img
                 key={index}
-                src={`/gallery${i}.jpg`}
-                alt={`Gallery ${i}`}
+                src={`/gallery${i}.jpg`} // ✅ fixed string formatting
+                alt={`Gallery ${i}`}     // ✅ fixed string formatting
                 className="w-64 h-40 object-cover rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
               />
             ))}
@@ -113,20 +127,18 @@ export default function Home() {
       <section className="py-16 px-6 md:px-16 bg-[#fef5ea] text-center">
         <h2 className="text-3xl font-bold mb-8">Our Impact</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[
-            ['100', 'Lives Impacted'],
-            ['100+', 'Volunteers'],
-            ['50+', 'Projects Completed'],
-          ].map(([stat, label], i) => (
-            <motion.div
-              key={i}
-              className="bg-white p-6 rounded-lg shadow hover:shadow-lg"
-              whileHover={{ scale: 1.05 }}
-            >
-              <h3 className="text-4xl font-bold text-orange-500">{stat}</h3>
-              <p className="text-lg">{label}</p>
-            </motion.div>
-          ))}
+          {[['100', 'Lives Impacted'], ['100+', 'Volunteers'], ['50+', 'Projects Completed']].map(
+            ([stat, label], i) => (
+              <motion.div
+                key={i}
+                className="bg-white p-6 rounded-lg shadow hover:shadow-lg"
+                whileHover={{ scale: 1.05 }}
+              >
+                <h3 className="text-4xl font-bold text-orange-500">{stat}</h3>
+                <p className="text-lg">{label}</p>
+              </motion.div>
+            )
+          )}
         </div>
       </section>
 
@@ -162,10 +174,7 @@ export default function Home() {
         </motion.button>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-black text-white text-center py-6">
-        <p>© 2025 Vishoka Foundation. All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   );
 }
