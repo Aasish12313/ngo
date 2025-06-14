@@ -68,3 +68,8 @@ body {
   border-color: #fb923c;
   box-shadow: 0 0 0 2px rgba(251, 146, 60, 0.4);
 }
+
+.input-style {
+  @apply w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition;
+}
+
