@@ -16,7 +16,7 @@ const About = () => {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
             <p className="text-sm mb-2 border border-white px-3 py-1 inline-block rounded-full">
-              Making Global Impact
+              Making Global Impact..
             </p>
             <h1 className="text-4xl md:text-5xl font-bold leading-tight">
               Vishoka Welfare Foundation
