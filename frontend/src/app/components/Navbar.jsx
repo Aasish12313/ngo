@@ -12,7 +12,7 @@ const Navbar = () => {
           <li><Link href="/about">About</Link></li>
           <li><a href="#">Programs</a></li>
           <li><a href="#">Impact</a></li>
-          <li><a href="#">Stories</a></li>
+          <li><Link href="/gallery">Gallery</Link></li>
           <li><Link href="/contact">Contact Us</Link></li>
           <li>
             <button className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md">

@@ -1,11 +1,13 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link'; // ✅ Import Link
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import VolunteerFormModal from './components/VolunteerFormModal';
 import { motion } from 'framer-motion';
 
 export default function Home() {
+  const [isVolunteerOpen, setVolunteerOpen] = useState(false); // ✅ This was missing
   const galleryImages = [1, 2, 3, 4];
 
   return (
@@ -44,6 +46,7 @@ export default function Home() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md"
+              onClick={() => setVolunteerOpen(true)} // ✅ open modal on click
             >
               Become a Volunteer
             </motion.button>
@@ -166,15 +169,19 @@ export default function Home() {
         >
           Ready to Make a Difference?
         </motion.h2>
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md"
-        >
-          Join Us
-        </motion.button>
+        <Link href="/hiring">
+  <motion.button
+    whileHover={{ scale: 1.1 }}
+    className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md"
+  >
+    Join Us
+  </motion.button>
+</Link>
       </section>
 
       <Footer />
+    {/* Volunteer Form Modal */}
+      <VolunteerFormModal isOpen={isVolunteerOpen} onClose={() => setVolunteerOpen(false)} />
     </div>
   );
 }
