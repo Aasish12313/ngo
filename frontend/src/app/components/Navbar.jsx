@@ -17,7 +17,7 @@ const Navbar = () => {
         <ul className="flex gap-6 text-[#1c1c1c] font-medium">
           <li><Link href="/">Home</Link></li>
           <li><Link href="/about">About</Link></li>
-          <li><a href="#">Programs</a></li>
+          <li><Link href="/programs">Programs</Link></li> {/* ✅ Fixed here */}
           <li><a href="#">Impact</a></li>
           <li><Link href="/gallery">Gallery</Link></li>
           <li><Link href="/contact">Contact Us</Link></li>

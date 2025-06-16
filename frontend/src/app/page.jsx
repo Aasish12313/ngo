@@ -1,20 +1,20 @@
 'use client';
 import React, { useState } from 'react';
-import Link from 'next/link'; // ✅ Import Link
+import Link from 'next/link';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import VolunteerFormModal from './components/VolunteerFormModal';
 import { motion } from 'framer-motion';
 
 export default function Home() {
-  const [isVolunteerOpen, setVolunteerOpen] = useState(false); // ✅ This was missing
+  const [isVolunteerOpen, setVolunteerOpen] = useState(false);
   const galleryImages = [1, 2, 3, 4];
 
   return (
     <div className="bg-[#fffaf5] text-[#1c1c1c] font-sans">
       <Navbar />
 
-      {/* Hero Section with Video Background */}
+      {/* Hero Section */}
       <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
         <video
           autoPlay
@@ -46,12 +46,10 @@ export default function Home() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md"
-              onClick={() => setVolunteerOpen(true)} // ✅ open modal on click
+              onClick={() => setVolunteerOpen(true)}
             >
               Become a Volunteer
             </motion.button>
-            
-            {/* ✅ ABOUT US BUTTON */}
             <Link href="/about">
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -69,10 +67,10 @@ export default function Home() {
         <motion.img
           src="/images/mission.jpg"
           alt="Mission"
-          className="w-full md:w-1/2 rounded-xl object-cover"
-          initial={{ scale: 0.8, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.8 }}
+          initial={{ scale: 1 }}
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.4 }}
+          className="w-full md:w-1/2 rounded-xl object-cover shadow-lg"
         />
         <motion.div
           className="md:w-1/2"
@@ -100,27 +98,54 @@ export default function Home() {
             {galleryImages.concat(galleryImages).map((i, index) => (
               <motion.img
                 key={index}
-                src={`/gallery${i}.jpg`} // ✅ fixed string formatting
-                alt={`Gallery ${i}`}     // ✅ fixed string formatting
-                className="w-64 h-40 object-cover rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
+                src={`/gallery${i}.jpg`}
+                alt={`Gallery ${i}`}
+                initial={{ scale: 1 }}
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3 }}
+                className="w-64 h-40 object-cover rounded-xl shadow-lg"
               />
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Our Programs */}
+      {/* Our Programs with Autoplay Videos */}
       <section className="py-16 px-6 md:px-16 bg-white">
         <h2 className="text-3xl font-bold mb-10 text-center">Our Programs</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {['Education', 'Health', 'Women Empowerment'].map((prog, idx) => (
+          {[
+            {
+              title: 'Education',
+              videoSrc: '/videos/education.mp4',
+              description: 'Making lives better through education initiatives.',
+            },
+            {
+              title: 'Health',
+              videoSrc: '/videos/health.mp4',
+              description: 'Making lives better through health initiatives.',
+            },
+            {
+              title: 'Women Empowerment',
+              videoSrc: '/videos/women.mp4',
+              description: 'Making lives better through women empowerment initiatives.',
+            },
+          ].map((program, idx) => (
             <motion.div
               key={idx}
               className="bg-[#fffaf5] p-6 shadow rounded-lg text-center hover:shadow-xl transition-shadow duration-300"
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ scale: 1.05 }}
             >
-              <h3 className="text-xl font-semibold mb-2">{prog}</h3>
-              <p>Making lives better through {prog.toLowerCase()} initiatives.</p>
+              <h3 className="text-xl font-semibold mb-4">{program.title}</h3>
+              <video
+                src={program.videoSrc}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="rounded-md w-full h-64 object-cover mb-4"
+              />
+              <p>{program.description}</p>
             </motion.div>
           ))}
         </div>
@@ -170,17 +195,16 @@ export default function Home() {
           Ready to Make a Difference?
         </motion.h2>
         <Link href="/hiring">
-  <motion.button
-    whileHover={{ scale: 1.1 }}
-    className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md"
-  >
-    Join Us
-  </motion.button>
-</Link>
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md"
+          >
+            Join Us
+          </motion.button>
+        </Link>
       </section>
 
       <Footer />
-    {/* Volunteer Form Modal */}
       <VolunteerFormModal isOpen={isVolunteerOpen} onClose={() => setVolunteerOpen(false)} />
     </div>
   );
