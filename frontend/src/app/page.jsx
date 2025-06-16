@@ -1,13 +1,14 @@
 'use client';
 import React, { useState } from 'react';
-import Link from 'next/link'; // ✅ Import Link
+import Link from 'next/link';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import VolunteerFormModal from './components/VolunteerFormModal';
 import { motion } from 'framer-motion';
+import FloatingDonateButton from './components/FloatingDonateButton'; // ✅ Added
 
 export default function Home() {
-  const [isVolunteerOpen, setVolunteerOpen] = useState(false); // ✅ This was missing
+  const [isVolunteerOpen, setVolunteerOpen] = useState(false);
   const galleryImages = [1, 2, 3, 4];
 
   return (
@@ -46,12 +47,10 @@ export default function Home() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md"
-              onClick={() => setVolunteerOpen(true)} // ✅ open modal on click
+              onClick={() => setVolunteerOpen(true)}
             >
               Become a Volunteer
             </motion.button>
-            
-            {/* ✅ ABOUT US BUTTON */}
             <Link href="/about">
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -100,8 +99,8 @@ export default function Home() {
             {galleryImages.concat(galleryImages).map((i, index) => (
               <motion.img
                 key={index}
-                src={`/gallery${i}.jpg`} // ✅ fixed string formatting
-                alt={`Gallery ${i}`}     // ✅ fixed string formatting
+                src={`/gallery${i}.jpg`}
+                alt={`Gallery ${i}`}
                 className="w-64 h-40 object-cover rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
               />
             ))}
@@ -170,18 +169,20 @@ export default function Home() {
           Ready to Make a Difference?
         </motion.h2>
         <Link href="/hiring">
-  <motion.button
-    whileHover={{ scale: 1.1 }}
-    className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md"
-  >
-    Join Us
-  </motion.button>
-</Link>
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md"
+          >
+            Join Us
+          </motion.button>
+        </Link>
       </section>
 
       <Footer />
-    {/* Volunteer Form Modal */}
+
       <VolunteerFormModal isOpen={isVolunteerOpen} onClose={() => setVolunteerOpen(false)} />
+
+      <FloatingDonateButton /> {/* ✅ Added here */}
     </div>
   );
 }
