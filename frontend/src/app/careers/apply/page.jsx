@@ -2,9 +2,8 @@
 import { useSearchParams } from 'next/navigation';
 import React, { useState } from 'react';
 import { useParams } from 'next/navigation';
-import Navbar from '/Users/laksh/ngo/frontend/src/app/components/Navbar';
-import Footer from '/Users/laksh/ngo/frontend/src/app/components/Footer';
-
+import Footer from '../../components/Footer';
+import Navbar from '../../components/Navbar';
 const ApplyPage = () => {
   const searchParams = useSearchParams();
   const position = searchParams.get('position') || 'Unknown Position';

@@ -1,8 +1,8 @@
 "use client";
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import Navbar from '/Users/laksh/ngo/frontend/src/app/components/Navbar';  // adjust the path as per your project
-import Footer from '/Users/laksh/ngo/frontend/src/app/components/Footer';  // adjust the path as per your project
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar'; // adjust the path as per your project
 
 const GalleryClient = ({ images }) => {
   const [mounted, setMounted] = useState(false);

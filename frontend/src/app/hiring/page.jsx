@@ -1,8 +1,8 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Navbar from '/Users/laksh/ngo/frontend/src/app/components/Navbar';
-import Footer from '/Users/laksh/ngo/frontend/src/app/components/Footer';
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
 
 const allImages = [
   '/hiring/1.jpg',
