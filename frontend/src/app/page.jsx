@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import VolunteerFormModal from './components/VolunteerFormModal';
 import { motion } from 'framer-motion';
+import FloatingDonateButton from './components/FloatingDonateButton'; // ✅ Added
 
 export default function Home() {
   const [isVolunteerOpen, setVolunteerOpen] = useState(false);
@@ -100,10 +101,7 @@ export default function Home() {
                 key={index}
                 src={`/gallery${i}.jpg`}
                 alt={`Gallery ${i}`}
-                initial={{ scale: 1 }}
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.3 }}
-                className="w-64 h-40 object-cover rounded-xl shadow-lg"
+                className="w-64 h-40 object-cover rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
               />
             ))}
           </motion.div>
@@ -205,7 +203,10 @@ export default function Home() {
       </section>
 
       <Footer />
+
       <VolunteerFormModal isOpen={isVolunteerOpen} onClose={() => setVolunteerOpen(false)} />
+
+      <FloatingDonateButton /> {/* ✅ Added here */}
     </div>
   );
 }
