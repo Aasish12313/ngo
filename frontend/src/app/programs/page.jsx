@@ -51,7 +51,7 @@ export default function ProgramsPage() {
           playsInline
           className="absolute w-full h-full object-cover brightness-[0.5]"
         >
-          <source src="/hero-bg.mp4" type="video/mp4" />
+          <source src="/hero-bg2.mp4" type="video/mp4" />
         </video>
         <div className="relative z-10 text-center text-white px-4">
           <motion.h1
