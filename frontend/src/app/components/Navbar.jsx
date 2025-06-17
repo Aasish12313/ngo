@@ -8,18 +8,15 @@ const Navbar = () => {
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
         
-        {/* Logo and Brand */}
+        {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/images/vishoka_logo.png" // ✅ Make sure image is placed in public/images/
+            src="/images/vishoka_logo.png" 
             alt="Visoka Logo"
+            align="left"
             width={48}
             height={48}
-            className="rounded-full" // ✅ No border, fully round
-          />
-          <span className="text-xl md:text-2xl font-bold text-[#1c1c1c] hover:text-orange-600 transition">
-            Visoka Welfare Foundation
-          </span>
+            className="rounded-full"/>
         </Link>
 
         <ul className="flex gap-4 md:gap-6 text-[#1c1c1c] font-medium text-sm md:text-base">

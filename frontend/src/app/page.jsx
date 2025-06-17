@@ -64,28 +64,46 @@ export default function Home() {
       </section>
 
       {/* Mission Section */}
-      <section className="py-16 px-6 md:px-16 bg-white flex flex-col md:flex-row items-center gap-8">
-        <motion.img
-          src="/images/mission.jpg"
-          alt="Mission"
-          initial={{ scale: 1 }}
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.4 }}
-          className="w-full md:w-1/2 rounded-xl object-cover shadow-lg"
-        />
-        <motion.div
-          className="md:w-1/2"
-          initial={{ x: 100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
-          <p className="text-lg">
-            We strive to create impactful, sustainable development initiatives that uplift
-            underprivileged communities and promote education, health, and equality.
-          </p>
-        </motion.div>
-      </section>
+      <section 
+  className="relative py-20 px-6 md:px-20 flex flex-col md:flex-row items-center gap-10 text-white"
+  style={{
+    background: 'linear-gradient(135deg,rgb(210, 240, 255) 0%,rgb(160, 238, 101) 100%)', // Soft orange-pink gradient
+  }}
+>
+  {/* Left Image */}
+  <motion.img
+    src="/images/mission.jpg"
+    alt="Mission"
+    initial={{ scale: 1 }}
+    whileHover={{ scale: 1.05 }}
+    transition={{ duration: 0.4 }}
+    className="w-full md:w-1/2 rounded-xl object-cover shadow-lg relative z-10"
+  />
+
+  {/* Right Text Content */}
+  <motion.div
+    className="md:w-1/2 relative z-10 p-10 rounded-xl shadow-2xl bg-black bg-opacity-60 backdrop-blur-sm"
+    initial={{ x: 100, opacity: 0 }}
+    whileInView={{ x: 0, opacity: 1 }}
+    transition={{ duration: 0.8 }}
+  >
+    <h2 className="text-5xl md:text-6xl font-extrabold mb-8 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent relative inline-block">
+      Our Mission
+      <span className="block h-[4px] w-20 bg-orange-400 absolute -bottom-3 left-0 animate-pulse rounded-full"></span>
+    </h2>
+    <p className="text-xl md:text-2xl leading-relaxed tracking-wide text-white font-light">
+      We strive to create <span className="text-orange-300 font-semibold">impactful</span>,
+      <span className="text-orange-300 font-semibold"> sustainable development initiatives</span> that uplift
+      <span className="text-orange-300 font-semibold"> underprivileged communities</span> and promote
+      <span className="text-orange-300 font-semibold"> education</span>,
+      <span className="text-orange-300 font-semibold"> health</span>, and
+      <span className="text-orange-300 font-semibold"> equality</span>.
+    </p>
+  </motion.div>
+</section>
+
+
+
 
       {/* Gallery Section */}
       <section className="py-16 px-6 md:px-16 bg-[#f9f3ef] text-center">
