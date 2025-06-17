@@ -27,6 +27,12 @@ const Navbar = () => {
           <li><Link href="/about">About</Link></li>
           <li><Link href="/programs">Programs</Link></li>
           <li><a href="#">Impact</a></li>
+          <li>
+            <Link href="/impact-map" className="hover:text-indigo-500">
+            Impact Map
+            </Link>
+          </li>
+
           <li><Link href="/gallery">Gallery</Link></li>
           <li><Link href="/contact">Contact Us</Link></li>
           <li>
