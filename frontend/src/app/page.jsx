@@ -81,25 +81,26 @@ export default function Home() {
   />
 
   {/* Right Text Content */}
-  <motion.div
-    className="md:w-1/2 relative z-10 p-10 rounded-xl shadow-2xl bg-black bg-opacity-60 backdrop-blur-sm"
-    initial={{ x: 100, opacity: 0 }}
-    whileInView={{ x: 0, opacity: 1 }}
-    transition={{ duration: 0.8 }}
-  >
-    <h2 className="text-5xl md:text-6xl font-extrabold mb-8 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent relative inline-block">
-      Our Mission
-      <span className="block h-[4px] w-20 bg-orange-400 absolute -bottom-3 left-0 animate-pulse rounded-full"></span>
-    </h2>
-    <p className="text-xl md:text-2xl leading-relaxed tracking-wide text-white font-light">
-      We strive to create <span className="text-orange-300 font-semibold">impactful</span>,
-      <span className="text-orange-300 font-semibold"> sustainable development initiatives</span> that uplift
-      <span className="text-orange-300 font-semibold"> underprivileged communities</span> and promote
-      <span className="text-orange-300 font-semibold"> education</span>,
-      <span className="text-orange-300 font-semibold"> health</span>, and
-      <span className="text-orange-300 font-semibold"> equality</span>.
-    </p>
-  </motion.div>
+ <motion.div
+  className="md:w-[45%] p-6 rounded-lg shadow-xl bg-black bg-opacity-60 backdrop-blur-sm relative z-10"
+  initial={{ x: 100, opacity: 0 }}
+  whileInView={{ x: 0, opacity: 1 }}
+  transition={{ duration: 0.8 }}
+>
+  <h2 className="text-4xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent relative inline-block">
+    Our Mission
+    <span className="block h-[3px] w-16 bg-orange-400 absolute -bottom-2 left-0 animate-pulse rounded-full"></span>
+  </h2>
+  <p className="text-base md:text-lg leading-relaxed tracking-wide text-white font-light">
+    We strive to create <span className="text-orange-300 font-semibold">impactful</span>,
+    <span className="text-orange-300 font-semibold"> sustainable development initiatives</span> that uplift
+    <span className="text-orange-300 font-semibold"> underprivileged communities</span> and promote
+    <span className="text-orange-300 font-semibold"> education</span>,
+    <span className="text-orange-300 font-semibold"> health</span>, and
+    <span className="text-orange-300 font-semibold"> equality</span>.
+  </p>
+</motion.div>
+
 </section>
 
 
@@ -125,47 +126,51 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
-      {/* Our Programs with Autoplay Videos */}
-      <section className="py-16 px-6 md:px-16 bg-white">
-        <h2 className="text-3xl font-bold mb-10 text-center">Our Programs</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[
-            {
-              title: 'Education',
-              videoSrc: '/videos/education.mp4',
-              description: 'Making lives better through education initiatives.',
-            },
-            {
-              title: 'Health',
-              videoSrc: '/videos/health.mp4',
-              description: 'Making lives better through health initiatives.',
-            },
-            {
-              title: 'Women Empowerment',
-              videoSrc: '/videos/women.mp4',
-              description: 'Making lives better through women empowerment initiatives.',
-            },
-          ].map((program, idx) => (
-            <motion.div
-              key={idx}
-              className="bg-[#fffaf5] p-6 shadow rounded-lg text-center hover:shadow-xl transition-shadow duration-300"
-              whileHover={{ scale: 1.05 }}
-            >
-              <h3 className="text-xl font-semibold mb-4">{program.title}</h3>
-              <video
-                src={program.videoSrc}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="rounded-md w-full h-64 object-cover mb-4"
-              />
-              <p>{program.description}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+{/* Our Programs with Autoplay Videos */}
+<section className="py-16 px-6 md:px-16 bg-white">
+  <h2 className="text-3xl font-bold mb-10 text-center"><u>Our Key Programs</u></h2>
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+    {[
+      {
+        title: 'Child Education & Holistic Development',
+        videoSrc: '/videos/education.mp4',
+        description: `Through our Dream Shala program, we support underserved children aged 6–14 in urban slums by strengthening their literacy, life skills, and confidence through creative pedagogy, impacting over 300 children annually.`,
+      },
+      {
+        title: 'Gender Justice & SRHR Awareness',
+        videoSrc: '/videos/women.mp4',
+        description: `With our Red Relief Campaign, we create inclusive spaces for youth—especially girls—to engage in open dialogue around menstruation, consent, and reproductive health through street plays, workshops, and leadership forums.`,
+      },
+      {
+        title: 'Youth Leadership & Civic Engagement',
+        videoSrc: '/videos/youth.mp4',
+        description: `Our Youth Ki Awaaz Fellowship empowers rural and marginalized youth (18–29 years) to lead civic actions via theatre labs, democratic literacy, and community mobilization.`,
+      },
+      {
+        title: 'Climate Action & Environmental Justice',
+        videoSrc: '/videos/climate.mp4',
+        description: `“Van Zinda To Hum Zinda” engages 1,500+ people in forest conservation, seed bombing, and sustainability education to protect ecosystems and promote environmental justice.`,
+      },
+    ].map((program, idx) => (
+      <motion.div
+        key={idx}
+        className="bg-[#fffaf5] p-6 shadow-md rounded-2xl hover:shadow-orange-300 transition-shadow duration-300 text-center border border-orange-100"
+        whileHover={{ scale: 1.03 }}
+      >
+        <h3 className="text-xl font-semibold mb-4 text-orange-700">{program.title}</h3>
+        <video
+          src={program.videoSrc}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="rounded-lg w-full h-64 object-cover mb-4 shadow-sm"
+        />
+        <p className="text-gray-700 leading-relaxed">{program.description}</p>
+      </motion.div>
+    ))}
+  </div>
+</section>
 
       {/* Impact Section */}
       <section className="py-16 px-6 md:px-16 bg-[#fef5ea] text-center">

@@ -93,6 +93,14 @@ const Footer = () => {
           >
             <FaTwitter className="text-white text-sm" />
           </a>
+          <a
+            href="https://www.linkedin.com/company/visokawelfarefoundation"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-orange-500 transition"
+          >
+            <FaLinkedinIn className="text-white text-sm" />
+          </a>
         </div>
 
         {/* Divider */}
