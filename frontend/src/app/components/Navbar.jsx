@@ -23,7 +23,7 @@ const Navbar = () => {
           <li><Link href="/">Home</Link></li>
           <li><Link href="/about">About</Link></li>
           <li><Link href="/programs">Programs</Link></li>
-          <li><a href="#">Impact</a></li>
+          <li><Link href="/impact">Impact</Link></li>
           <li>
             <Link href="/impact-map" className="hover:text-indigo-500">
             Impact Map

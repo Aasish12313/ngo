@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 
 import React from 'react';
 import Image from 'next/image';
@@ -213,9 +214,11 @@ const About = () => {
               <button className="w-full bg-blue-100 text-blue-800 py-2 rounded hover:bg-blue-200">
                 Partner With Us
               </button>
-              <button className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">
-                Donate Now
-              </button>
+              <Link href="/donate">
+                  <button className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition duration-300">
+                              Donate Now
+                  </button>
+              </Link>
             </div>
             <p className="text-xs mt-4 text-center text-gray-500">
               Join 500,000+ supporters making a difference
