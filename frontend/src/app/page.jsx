@@ -67,7 +67,7 @@ export default function Home() {
       <section 
   className="relative py-20 px-6 md:px-20 flex flex-col md:flex-row items-center gap-10 text-white"
   style={{
-    background: 'linear-gradient(135deg,rgb(210, 240, 255) 0%,rgb(160, 238, 101) 100%)', // Soft orange-pink gradient
+    background: 'linear-gradient 100%)', // Soft orange-pink gradient
   }}
 >
   {/* Left Image */}
