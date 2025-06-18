@@ -19,13 +19,13 @@ const VolunteerFormModal = ({ isOpen, onClose }) => {
           animate={{ scale: 1 }}
           exit={{ scale: 0.8 }}
         >
-          <h2 className="text-2xl font-bold mb-4 text-center">Become a Volunteer</h2>
+          <h2 className="text-2xl text-black font-bold mb-4 text-center">Become a Volunteer</h2>
           <form className="space-y-4">
-            <input type="text" placeholder="Full Name" className="w-full p-3 border rounded-md" required />
-            <input type="email" placeholder="Email" className="w-full p-3 border rounded-md" required />
-            <input type="tel" placeholder="Phone Number" className="w-full p-3 border rounded-md" required />
-            <textarea placeholder="Why do you want to volunteer?" className="w-full p-3 border rounded-md" rows={3} required></textarea>
-            <select className="w-full p-3 border rounded-md" required>
+            <input type="text" placeholder="Full Name" className="w-full p-3 border text-black rounded-md" required />
+            <input type="email" placeholder="Email" className="w-full p-3 border text-black rounded-md" required />
+            <input type="tel" placeholder="Phone Number" className="w-full p-3 text-black border rounded-md" required />
+            <textarea placeholder="Why do you want to volunteer?" className="w-full p-3 text-black border rounded-md" rows={3} required></textarea>
+            <select className="w-full p-3 border text-black rounded-md" required>
               <option value="">Preferred Area of Work</option>
               <option>Education</option>
               <option>Health</option>
