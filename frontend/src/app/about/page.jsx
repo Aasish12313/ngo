@@ -31,12 +31,19 @@ const About = () => {
               Visoka Welfare Foundation is a non-governmental organization committed to promoting sustainable development and improving the quality of life for marginalized communities. Founded on the principles of social justice, equality, and environmental stewardship, our foundation works tirelessly to address the most pressing issues facing society today. Through our various programs and initiatives, we aim to empower individuals, protect the environment, and foster holistic community development.
             </p>
             <div className="mt-6 flex flex-wrap gap-4">
+              <Link href="/careers">
+
               <button className="bg-white text-indigo-700 px-6 py-2 rounded-full font-semibold hover:bg-indigo-100 transition duration-300">
                 Join Our Mission
               </button>
+              </Link>
+              
+              <Link href="/impact">
+
               <button className="bg-transparent border border-white px-6 py-2 rounded-full font-semibold hover:bg-white hover:text-indigo-700 transition duration-300">
                 See Our Impact
               </button>
+              </Link>
             </div>
           </motion.div>
 
