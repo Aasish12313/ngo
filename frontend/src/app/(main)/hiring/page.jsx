@@ -1,8 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import Footer from '../../../components/Footer';
-import Navbar from '../../../components/Navbar';
+
 
 const allImages = [
   '/hiring/1.jpg',
@@ -29,8 +28,7 @@ const JoinUsPage = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-black text-white relative">
-      <Navbar />
-
+  
       <main className="flex-1 relative flex items-center justify-center overflow-hidden">
         {/* Background Grid */}
         <div className="grid grid-cols-3 grid-rows-2 gap-2 w-full h-full absolute z-0">
@@ -58,7 +56,7 @@ const JoinUsPage = () => {
         </div>
       </main>
 
-      <Footer />
+ 
     </div>
   );
 };

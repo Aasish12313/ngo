@@ -6,30 +6,27 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/(main)/donate/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(main)/donate/page.js"
-    ],
     "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
-    "/(main)/about/page": [
+    "/admin/applications/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(main)/about/page.js"
+      "static/css/app/admin/applications/page.css",
+      "static/chunks/app/admin/applications/page.js"
     ],
-    "/(main)/programs/page": [
+    "/(main)/careers/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(main)/programs/page.js"
+      "static/chunks/app/(main)/careers/page.js"
     ],
-    "/(main)/contact/page": [
+    "/(main)/careers/apply/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(main)/contact/page.js"
+      "static/css/app/(main)/careers/apply/page.css",
+      "static/chunks/app/(main)/careers/apply/page.js"
     ]
   }
 }

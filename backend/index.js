@@ -1,16 +1,19 @@
 const express = require('express');
 const cors = require('cors');
 const contactRouter = require('./routers/contactRouter');
-//creating an express app
+const applicationRouter = require('./routers/applicationRouter');
+
 const app = express();
 const port = 5000;
 require('./connection');
+
 // middleware
 app.use(cors({
     origin: ['http://localhost:3000']
 }));
 app.use(express.json());
 app.use('/contacts', contactRouter);
+app.use('/applications', applicationRouter);
 
 // route or endpoint
 app.get('/', (req, res) => {

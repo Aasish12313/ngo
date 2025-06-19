@@ -1,7 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import Footer from '../../../components/Footer';
-import Navbar from '../../../components/Navbar'; // ✅ Use relative import
+
 
 const positions = [
   { title: 'Community Outreach Volunteer', type: 'Volunteer', location: 'Remote/Field' },
@@ -20,7 +19,7 @@ const CareersPage = () => {
 
   return (
     <>
-      <Navbar />
+     
       <div className="min-h-screen bg-gradient-to-r from-purple-100 via-pink-100 to-yellow-100 py-12 px-4 sm:px-8 text-gray-800">
         <h1 className="text-4xl font-extrabold text-center text-purple-700 mb-4">
           Open Positions at Vishoka Foundation
@@ -46,7 +45,7 @@ const CareersPage = () => {
           ))}
         </div>
       </div>
-      <Footer />
+   
     </>
   );
 };

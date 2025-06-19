@@ -236,11 +236,10 @@
 'use client';
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import VolunteerFormModal from './components/VolunteerFormModal';
+
+import VolunteerFormModal from '../components/VolunteerFormModal';
 import { motion } from 'framer-motion';
-import FloatingDonateButton from './components/FloatingDonateButton'; // ✅ Added
+import FloatingDonateButton from '../components/FloatingDonateButton';
 
 export default function Home() {
   const [isVolunteerOpen, setVolunteerOpen] = useState(false);
@@ -521,7 +520,7 @@ export default function Home() {
         </Link>
       </section>
 
-      <Footer />
+     
 
       <VolunteerFormModal isOpen={isVolunteerOpen} onClose={() => setVolunteerOpen(false)} />
       <FloatingDonateButton />

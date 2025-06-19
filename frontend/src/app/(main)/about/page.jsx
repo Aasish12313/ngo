@@ -3,8 +3,7 @@ import Link from 'next/link';
 
 import React from 'react';
 import Image from 'next/image';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
+
 import { motion } from 'framer-motion';
 
 const fadeInUp = {
@@ -17,7 +16,7 @@ const About = () => {
 
   return (
     <div className="text-gray-800">
-      <Navbar />
+   
 
       {/* HERO SECTION */}
       <section className="bg-gradient-to-r from-indigo-800 to-purple-800 text-white py-16 px-6">
@@ -241,7 +240,7 @@ const About = () => {
       {/* ✅ Render modal */}
       <VolunteerFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
-      <Footer />
+    
     </div>
   );
 };
