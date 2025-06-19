@@ -1,11 +1,11 @@
 'use client';
 import Link from 'next/link';
-
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import { motion } from 'framer-motion';
+import VolunteerFormModal from '../components/VolunteerFormModal'; // ✅ Import modal
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -13,6 +13,8 @@ const fadeInUp = {
 };
 
 const About = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false); // ✅ Modal state
+
   return (
     <div className="text-gray-800">
       <Navbar />
@@ -192,7 +194,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA SECTION */}
       <section className="bg-gradient-to-r from-indigo-800 to-purple-800 text-white py-16 px-6">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <motion.div variants={fadeInUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
@@ -206,6 +208,7 @@ const About = () => {
               <li>✉️ visokawelfarefoundation@gmail.com</li>
             </ul>
           </motion.div>
+
           <motion.div
             className="bg-white text-gray-800 rounded-xl p-6 shadow-md"
             variants={fadeInUp}
@@ -215,16 +218,17 @@ const About = () => {
           >
             <h3 className="font-bold mb-4">Get Involved</h3>
             <div className="space-y-3">
-              <button className="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700">
+              <button
+                onClick={() => setIsModalOpen(true)} // ✅ Open modal
+                className="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700 transition duration-300"
+              >
                 Become a Volunteer
               </button>
-              <button className="w-full bg-blue-100 text-blue-800 py-2 rounded hover:bg-blue-200">
-                Partner With Us
-              </button>
+              
               <Link href="/donate">
-                  <button className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition duration-300">
-                              Donate Now
-                  </button>
+                <button className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition duration-300">
+                  Donate Now
+                </button>
               </Link>
             </div>
             <p className="text-xs mt-4 text-center text-gray-500">
@@ -233,6 +237,9 @@ const About = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* ✅ Render modal */}
+      <VolunteerFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
       <Footer />
     </div>
