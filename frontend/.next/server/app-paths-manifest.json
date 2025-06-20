@@ -1,10 +1,20 @@
 {
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/_not-found/page": "app/_not-found/page.js",
+<<<<<<< HEAD
   "/page": "app/page.js",
   "/(main)/gallery/page": "app/(main)/gallery/page.js",
   "/(main)/contact/page": "app/(main)/contact/page.js",
   "/(main)/programs/page": "app/(main)/programs/page.js",
   "/(main)/donate/page": "app/(main)/donate/page.js",
   "/(main)/about/page": "app/(main)/about/page.js"
+=======
+  "/(main)/careers/page": "app/(main)/careers/page.js",
+  "/(main)/about/page": "app/(main)/about/page.js",
+  "/page": "app/page.js",
+  "/(main)/programs/page": "app/(main)/programs/page.js",
+  "/(main)/impact-map/page": "app/(main)/impact-map/page.js",
+  "/(main)/impact/page": "app/(main)/impact/page.js",
+  "/(main)/donate/page": "app/(main)/donate/page.js"
+>>>>>>> dc4695ce18c7d1b2b2dd2510672c8b224e324634
 }
