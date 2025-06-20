@@ -1,7 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-import Footer from '../../../components/Footer';
-
+// import Footer from '../../../components/Footer';
 
 const programs = [
   {
@@ -49,10 +48,8 @@ const programs = [
 export default function ProgramsPage() {
   return (
     <div className="bg-[#fffaf5] text-[#1c1c1c]">
-      
-
       {/* Hero Section */}
-      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[60vh] sm:h-[70vh] flex items-center justify-center overflow-hidden">
         <video
           autoPlay muted loop playsInline
           className="absolute w-full h-full object-cover brightness-[0.3]"
@@ -66,23 +63,23 @@ export default function ProgramsPage() {
           transition={{ duration: 1 }}
         >
           <motion.h1
-            className="text-6xl font-extrabold tracking-wide bg-gradient-to-r from-yellow-300  to-red-500 text-transparent bg-clip-text"
+            className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-wide bg-gradient-to-r from-yellow-300 to-red-500 text-transparent bg-clip-text"
             initial={{ y: -40 }}
             animate={{ y: 0 }}
             transition={{ duration: 1 }}
           >
             Our Programs
           </motion.h1>
-          <p className="text-lg mt-4 max-w-xl mx-auto text-orange-100">
+          <p className="text-base sm:text-lg mt-4 max-w-xl mx-auto text-orange-100">
             Explore how Vishoka Foundation drives transformation through grassroots initiatives.
           </p>
         </motion.div>
       </section>
 
       {/* Programs Section */}
-      <section className="py-24 px-6 md:px-20">
+      <section className="py-16 px-4 sm:px-6 md:px-20">
         <motion.h2
-          className="text-5xl font-bold text-center mb-20 bg-gradient-to-r from-orange-400 to-pink-500 text-transparent bg-clip-text"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-orange-400 to-pink-500 text-transparent bg-clip-text"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
@@ -90,7 +87,7 @@ export default function ProgramsPage() {
           Impactful Initiatives
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
           {programs.map((prog, idx) => (
             <motion.div
               key={idx}
@@ -103,10 +100,10 @@ export default function ProgramsPage() {
               <img
                 src={prog.image}
                 alt={prog.title}
-                className="w-full h-60 object-cover hover:scale-110 transition-transform duration-500"
+                className="w-full h-52 sm:h-60 md:h-64 object-cover transition-transform duration-500 hover:scale-110"
               />
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-pink-600 mb-1">{prog.title}</h3>
+              <div className="p-5 sm:p-6">
+                <h3 className="text-xl sm:text-2xl font-bold text-pink-600 mb-1">{prog.title}</h3>
                 <p className="text-sm italic text-gray-500 mb-3">{prog.subtitle}</p>
                 <p className="text-gray-800 mb-4 leading-relaxed">{prog.description}</p>
 
@@ -114,6 +111,7 @@ export default function ProgramsPage() {
                   <span className="font-semibold text-gray-700">Beneficiaries:</span>{' '}
                   <span className="text-gray-600">{prog.beneficiaries}</span>
                 </div>
+
                 <div className="mb-4">
                   <span className="font-semibold text-gray-700">Key Activities:</span>
                   <ul className="list-disc list-inside text-gray-600">
@@ -156,10 +154,10 @@ export default function ProgramsPage() {
         </div>
       </section>
 
-      {/* Donation Section */}
-      <section className="bg-orange-50 py-24 px-6 md:px-20 text-center relative overflow-hidden">
+      {/* Donation CTA */}
+      <section className="bg-orange-50 py-20 px-4 sm:px-6 md:px-20 text-center relative overflow-hidden">
         <motion.h2
-          className="text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500"
+          className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -168,7 +166,7 @@ export default function ProgramsPage() {
         </motion.h2>
 
         <motion.p
-          className="text-lg max-w-2xl mx-auto mb-8 text-gray-800 leading-relaxed"
+          className="text-base sm:text-lg max-w-2xl mx-auto mb-8 text-gray-800 leading-relaxed"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
@@ -178,17 +176,16 @@ export default function ProgramsPage() {
         </motion.p>
 
         <motion.a
-    href="/donate"
-    whileHover={{ scale: 1.08 }}
-    whileTap={{ scale: 0.95 }}
-    className="inline-block bg-orange-500  text-white px-10 py-4 rounded-full font-semibold shadow-lg transition duration-300"
-  >
-    Donate Now
-  </motion.a>
-
+          href="/donate"
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.95 }}
+          className="inline-block bg-orange-500 text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full font-semibold shadow-lg transition duration-300"
+        >
+          Donate Now
+        </motion.a>
       </section>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
