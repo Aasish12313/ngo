@@ -1,7 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import Footer from '../../../components/Footer';
-import Navbar from '../../../components/Navbar';
+
 
 const programs = [
   {
@@ -49,7 +49,7 @@ const programs = [
 export default function ProgramsPage() {
   return (
     <div className="bg-[#fffaf5] text-[#1c1c1c]">
-      <Navbar />
+      
 
       {/* Hero Section */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">

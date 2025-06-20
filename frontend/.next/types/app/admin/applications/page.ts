@@ -1,4 +1,4 @@
-// File: C:\Users\ASUS\Desktop\New folder (4)\ngo\frontend\src\app\admin\applications\page.jsx
+// File: C:\projects\2nd\ngo\frontend\src\app\admin\applications\page.jsx
 import * as entry from '../../../../../src/app/admin/applications/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

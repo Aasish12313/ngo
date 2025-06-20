@@ -1,3 +1,9 @@
 {
-  "/page": "app/page.js"
+  "/admin/contactMessage/page": "app/admin/contactMessage/page.js",
+  "/(main)/contact/page": "app/(main)/contact/page.js",
+  "/(main)/careers/apply/page": "app/(main)/careers/apply/page.js",
+  "/page": "app/page.js",
+  "/(main)/about/page": "app/(main)/about/page.js",
+  "/(main)/programs/page": "app/(main)/programs/page.js",
+  "/admin/applications/page": "app/admin/applications/page.js"
 }
