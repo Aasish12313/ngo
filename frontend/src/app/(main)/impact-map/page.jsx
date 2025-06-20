@@ -3,8 +3,8 @@
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useState } from 'react';
-import Footer from '../../../components/Footer';
-import Navbar from '../../../components/Navbar';
+// import Footer from '../../../components/Footer';
+// import Navbar from '../../../components/Navbar';
 
 const MapWithNoSSR = dynamic(() => import('../../../components/MapView'), {
   ssr: false,
@@ -70,7 +70,7 @@ export default function ImpactMapPage() {
 
   return (
     <div className="bg-white text-gray-800 flex flex-col min-h-screen">
-      <Navbar />
+      {/* <Navbar /> */}
 
       <section className="flex flex-col lg:flex-row flex-grow overflow-hidden">
         <div className="w-full lg:w-3/4 h-[85vh] relative">
@@ -123,7 +123,7 @@ export default function ImpactMapPage() {
         </aside>
       </section>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

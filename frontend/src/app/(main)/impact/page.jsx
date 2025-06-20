@@ -1,8 +1,8 @@
 'use client';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
-import Footer from '../../../components/Footer';
-import Navbar from '../../../components/Navbar';
+// import Footer from '../../../components/Footer';
+// import Navbar from '../../../components/Navbar';
 
 const metrics = [
   { number: '500+', label: 'Lives Changed' },
@@ -21,7 +21,7 @@ export default function ImpactPage() {
     const router = useRouter();
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* Hero Banner */}
       <section className="relative h-64 md:h-96">
@@ -91,7 +91,7 @@ export default function ImpactPage() {
 </motion.button>
       </section>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

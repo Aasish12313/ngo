@@ -1,8 +1,8 @@
 "use client";
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import Footer from '../../../components/Footer';
-import Navbar from '../../../components/Navbar'; // adjust the path as per your project
+// import Footer from '../../../components/Footer';
+// import Navbar from '../../../components/Navbar'; // adjust the path as per your project
 
 const GalleryClient = ({ images }) => {
   const [mounted, setMounted] = useState(false);
@@ -30,7 +30,7 @@ const GalleryClient = ({ images }) => {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
 
       <div className="min-h-screen bg-gradient-to-br from-purple-100 to-blue-100 py-10 px-4">
         <h1 className="text-5xl font-bold text-center text-gray-800 mb-4">Gallery</h1>
@@ -78,7 +78,7 @@ const GalleryClient = ({ images }) => {
         </div>
       )}
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

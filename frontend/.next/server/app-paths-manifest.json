@@ -1,1 +1,7 @@
-{}
+{
+  "/page": "app/page.js",
+  "/(main)/impact-map/page": "app/(main)/impact-map/page.js",
+  "/(main)/contact/page": "app/(main)/contact/page.js",
+  "/(main)/gallery/page": "app/(main)/gallery/page.js",
+  "/(main)/about/page": "app/(main)/about/page.js"
+}
