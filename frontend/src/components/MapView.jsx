@@ -12,13 +12,15 @@ const customIcon = new L.Icon({
   iconSize: [25, 41],
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],
-  shadowSize: [41, 41]
+  shadowSize: [41, 41],
 });
 
 const MapView = ({ programs, setSelectedProgram }) => {
   useEffect(() => {
     const mapElem = document.querySelector('.leaflet-container');
-    if (mapElem) mapElem.style.height = '100%';
+    if (mapElem) {
+      mapElem.style.height = '100%'; // makes sure leaflet resizes correctly
+    }
   }, []);
 
   return (
@@ -37,7 +39,9 @@ const MapView = ({ programs, setSelectedProgram }) => {
           key={program.id}
           position={[program.lat, program.lng]}
           icon={customIcon}
-          eventHandlers={{ click: () => setSelectedProgram(program) }}
+          eventHandlers={{
+            click: () => setSelectedProgram(program),
+          }}
         >
           <Popup>
             <div style={{ minWidth: '160px' }}>
