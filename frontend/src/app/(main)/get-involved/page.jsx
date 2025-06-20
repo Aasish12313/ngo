@@ -1,8 +1,8 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import Footer from '../../../components/Footer';
-import Navbar from '../../../components/Navbar';
+// import Footer from '../../../components/Footer';
+// import Navbar from '../../../components/Navbar';
 import VolunteerModal from '../../../components/VolunteerFormModal'; // ✅ Importing correctly
 
 const GetInvolvedPage = () => {
@@ -11,7 +11,7 @@ const GetInvolvedPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
-      <Navbar />
+      {/* <Navbar /> */}
 
       <div className="flex flex-col items-center justify-center flex-1 text-center px-4 py-20 space-y-8">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-800">Get Involved with Vishoka Foundation</h1>
@@ -47,7 +47,7 @@ const GetInvolvedPage = () => {
       {/* ✅ Use the imported component name */}
       <VolunteerModal isOpen={showModal} onClose={() => setShowModal(false)} />
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

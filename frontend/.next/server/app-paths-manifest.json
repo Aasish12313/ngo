@@ -1,5 +1,10 @@
 {
-  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/(main)/donate/page": "app/(main)/donate/page.js",
+  "/(main)/get-involved/page": "app/(main)/get-involved/page.js",
+  "/(main)/gallery/page": "app/(main)/gallery/page.js",
   "/(main)/impact-map/page": "app/(main)/impact-map/page.js",
+  "/(main)/contact/page": "app/(main)/contact/page.js",
+  "/(main)/impact/page": "app/(main)/impact/page.js",
   "/page": "app/page.js"
 }
