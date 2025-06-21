@@ -5,8 +5,8 @@
 import { motion } from "framer-motion";
 import Script from "next/script";
 import { useEffect, useState } from "react";
-import Footer from "../../../components/Footer";
-import Navbar from "../../../components/Navbar";
+// import Footer from "../../../components/Footer";
+// import Navbar from "../../../components/Navbar";
 
 const reviews = [
   {
@@ -71,7 +71,7 @@ const DonationPage = () => {
   return (
     <div className="min-h-screen bg-white text-gray-800 relative overflow-hidden">
       <Script src="https://checkout.razorpay.com/v1/checkout.js" />
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* Background Video */}
       <video
@@ -232,7 +232,7 @@ const DonationPage = () => {
         </div>
       </div>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

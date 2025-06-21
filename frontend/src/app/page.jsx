@@ -236,7 +236,6 @@
 'use client';
 import React, { useState } from 'react';
 import Link from 'next/link';
-
 import VolunteerFormModal from '../components/VolunteerFormModal';
 import { motion } from 'framer-motion';
 import FloatingDonateButton from '../components/FloatingDonateButton';
@@ -245,7 +244,6 @@ export default function Home() {
   const [isVolunteerOpen, setVolunteerOpen] = useState(false);
   const galleryImages = [1, 2, 3, 4];
 
-  // ✅ Comment system states
   const [comments, setComments] = useState([
     {
       name: 'Ram',
@@ -253,15 +251,9 @@ export default function Home() {
       comment: 'Working with Vishoka Foundation has been life-changing. Their dedication is truly inspiring.',
     },
   ]);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    comment: '',
-  });
+  const [formData, setFormData] = useState({ name: '', email: '', comment: '' });
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -275,18 +267,13 @@ export default function Home() {
     <div className="bg-[#fffaf5] text-[#1c1c1c] font-sans">
 
       {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
-        <video
-          autoPlay
-          loop
-          muted
-          className="absolute w-full h-full object-cover z-0 brightness-[0.6]"
-        >
+      <section className="relative h-[90vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+        <video autoPlay loop muted className="absolute w-full h-full object-cover z-0 brightness-[0.6]">
           <source src="/hero-bg.mp4" type="video/mp4" />
         </video>
         <div className="relative z-10 text-center text-white px-4">
           <motion.h1
-            className="text-5xl font-bold mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -294,14 +281,14 @@ export default function Home() {
             Empowering Communities for a Better Tomorrow
           </motion.h1>
           <motion.p
-            className="text-lg mb-6 max-w-xl mx-auto"
+            className="text-base sm:text-lg mb-6 max-w-xl mx-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
             Join Vishoka Foundation in our mission to bring lasting change and hope.
           </motion.p>
-          <div className="flex gap-4 justify-center">
+          <div className="flex flex-wrap gap-4 justify-center">
             <motion.button
               whileHover={{ scale: 1.05 }}
               className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md"
@@ -322,29 +309,22 @@ export default function Home() {
       </section>
 
       {/* Mission Section */}
-      <section 
-  className="relative py-20 px-6 md:px-20 flex flex-col md:flex-row items-center gap-10 text-white"
-  style={{
-    background: 'linear-gradient 100%)', // Soft orange-pink gradient
-  }}
->
-  {/* Left Image */}
-  <motion.img
-    src="/images/mission.jpg"
-    alt="Mission"
-    initial={{ scale: 1 }}
-    whileHover={{ scale: 1.05 }}
-    transition={{ duration: 0.4 }}
-    className="w-full md:w-1/2 rounded-xl object-cover shadow-lg relative z-10"
-  />
-
+      <section className="relative py-16 px-4 sm:px-6 md:px-20 flex flex-col md:flex-row items-center gap-10 text-white">
+        <motion.img
+          src="/images/mission.jpg"
+          alt="Mission"
+          initial={{ scale: 1 }}
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.4 }}
+          className="w-full md:w-1/2 rounded-xl object-cover shadow-lg relative z-10"
+        />
         <motion.div
-          className="md:w-[45%] p-6 rounded-lg shadow-xl bg-black bg-opacity-60 backdrop-blur-sm relative z-10"
+          className="w-full md:w-[45%] p-6 rounded-lg shadow-xl bg-black bg-opacity-60 backdrop-blur-sm relative z-10"
           initial={{ x: 100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent relative inline-block">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent relative inline-block">
             Our Mission
             <span className="block h-[3px] w-16 bg-orange-400 absolute -bottom-2 left-0 animate-pulse rounded-full"></span>
           </h2>
@@ -360,11 +340,11 @@ export default function Home() {
       </section>
 
       {/* Gallery Section */}
-      <section className="py-16 px-6 md:px-16 bg-[#f9f3ef] text-center">
+      <section className="py-16 px-4 sm:px-6 md:px-16 bg-[#f9f3ef] text-center">
         <h2 className="text-3xl font-bold mb-8">Gallery Highlights</h2>
-        <div className="overflow-hidden w-full">
+        <div className="overflow-x-auto">
           <motion.div
-            className="flex gap-6"
+            className="flex gap-6 w-max"
             animate={{ x: ['0%', '-50%'] }}
             transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
           >
@@ -379,56 +359,57 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-{/* Our Programs with Autoplay Videos */}
-<section className="py-16 px-6 md:px-16 bg-white">
-  <h2 className="text-3xl font-bold mb-10 text-center"><u>Our Key Programs</u></h2>
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-    {[
-      {
-        title: 'Child Education & Holistic Development',
-        videoSrc: '/videos/education.mp4',
-        description: `Through our Dream Shala program, we support underserved children aged 6–14 in urban slums by strengthening their literacy, life skills, and confidence through creative pedagogy, impacting over 300 children annually.`,
-      },
-      {
-        title: 'Gender Justice & SRHR Awareness',
-        videoSrc: '/videos/women.mp4',
-        description: `With our Red Relief Campaign, we create inclusive spaces for youth—especially girls—to engage in open dialogue around menstruation, consent, and reproductive health through street plays, workshops, and leadership forums.`,
-      },
-      {
-        title: 'Youth Leadership & Civic Engagement',
-        videoSrc: '/videos/youth.mp4',
-        description: `Our Youth Ki Awaaz Fellowship empowers rural and marginalized youth (18–29 years) to lead civic actions via theatre labs, democratic literacy, and community mobilization.`,
-      },
-      {
-        title: 'Climate Action & Environmental Justice',
-        videoSrc: '/videos/climate.mp4',
-        description: `“Van Zinda To Hum Zinda” engages 1,500+ people in forest conservation, seed bombing, and sustainability education to protect ecosystems and promote environmental justice.`,
-      },
-    ].map((program, idx) => (
-      <motion.div
-        key={idx}
-        className="bg-[#fffaf5] p-6 shadow-md rounded-2xl hover:shadow-orange-300 transition-shadow duration-300 text-center border border-orange-100"
-        whileHover={{ scale: 1.03 }}
-      >
-        <h3 className="text-xl font-semibold mb-4 text-orange-700">{program.title}</h3>
-        <video
-          src={program.videoSrc}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="rounded-lg w-full h-64 object-cover mb-4 shadow-sm"
-        />
-        <p className="text-gray-700 leading-relaxed">{program.description}</p>
-      </motion.div>
-    ))}
-  </div>
-</section>
+
+      {/* Programs Section */}
+      <section className="py-16 px-4 sm:px-6 md:px-16 bg-white">
+        <h2 className="text-3xl font-bold mb-10 text-center"><u>Our Key Programs</u></h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
+          {[
+            {
+              title: 'Child Education & Holistic Development',
+              videoSrc: '/videos/education.mp4',
+              description: `Through our Dream Shala program, we support underserved children aged 6–14 in urban slums by strengthening their literacy, life skills, and confidence through creative pedagogy, impacting over 300 children annually.`,
+            },
+            {
+              title: 'Gender Justice & SRHR Awareness',
+              videoSrc: '/videos/women.mp4',
+              description: `With our Red Relief Campaign, we create inclusive spaces for youth—especially girls—to engage in open dialogue around menstruation, consent, and reproductive health through street plays, workshops, and leadership forums.`,
+            },
+            {
+              title: 'Youth Leadership & Civic Engagement',
+              videoSrc: '/videos/youth.mp4',
+              description: ` Our Youth Ki Awaaz Fellowship empowers rural and marginalized youth (18–29 years) to lead civic actions via theatre labs, democratic literacy, and community mobilization.`,
+            },
+            {
+              title: 'Climate Action & Environmental Justice',
+              videoSrc: '/videos/climate.mp4',
+              description: `"Van Zinda To Hum Zinda” engages 1,500+ people in forest conservation, seed bombing, and sustainability education to protect ecosystems and promote environmental justice.`,
+            },
+          ].map((program, idx) => (
+            <motion.div
+              key={idx}
+              className="bg-[#fffaf5] p-6 shadow-md rounded-2xl hover:shadow-orange-300 transition-shadow duration-300 text-center border border-orange-100"
+              whileHover={{ scale: 1.03 }}
+            >
+              <h3 className="text-lg sm:text-xl font-semibold mb-4 text-orange-700">{program.title}</h3>
+              <video
+                src={program.videoSrc}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="rounded-lg w-full h-52 sm:h-64 object-cover mb-4 shadow-sm"
+              />
+              <p className="text-gray-700 leading-relaxed text-sm sm:text-base">{program.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
       {/* Impact Section */}
-      <section className="py-16 px-6 md:px-16 bg-[#fef5ea] text-center">
+      <section className="py-16 px-4 sm:px-6 md:px-16 bg-[#fef5ea] text-center">
         <h2 className="text-3xl font-bold mb-8">Our Impact</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {[['100', 'Lives Impacted'], ['100+', 'Volunteers'], ['50+', 'Projects Completed']].map(
             ([stat, label], i) => (
               <motion.div
@@ -436,16 +417,16 @@ export default function Home() {
                 className="bg-white p-6 rounded-lg shadow hover:shadow-lg"
                 whileHover={{ scale: 1.05 }}
               >
-                <h3 className="text-4xl font-bold text-orange-500">{stat}</h3>
-                <p className="text-lg">{label}</p>
+                <h3 className="text-3xl sm:text-4xl font-bold text-orange-500">{stat}</h3>
+                <p className="text-base sm:text-lg">{label}</p>
               </motion.div>
             )
           )}
         </div>
       </section>
 
-      {/* Testimonials Section with Form */}
-      <section className="py-16 px-6 md:px-16 bg-white text-center">
+      {/* Testimonials Section */}
+      <section className="py-16 px-4 sm:px-6 md:px-16 bg-white text-center">
         <h2 className="text-3xl font-bold mb-8">What People Say</h2>
         {comments.map((item, index) => (
           <motion.blockquote
@@ -459,7 +440,6 @@ export default function Home() {
             <p className="mt-2 font-semibold text-right">– {item.name}</p>
           </motion.blockquote>
         ))}
-
         <div className="mt-10 max-w-xl mx-auto text-left">
           <h3 className="text-xl font-semibold mb-4">Add Your Comment</h3>
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -490,10 +470,7 @@ export default function Home() {
               rows="4"
               className="w-full border px-4 py-2 rounded-md"
             />
-            <button
-              type="submit"
-              className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-md transition"
-            >
+            <button type="submit" className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-md transition">
               Submit
             </button>
           </form>
@@ -501,7 +478,7 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-6 md:px-16 bg-[#fff3e0] text-center">
+      <section className="py-16 px-4 sm:px-6 md:px-16 bg-[#fff3e0] text-center">
         <motion.h2
           className="text-3xl font-bold mb-4"
           initial={{ y: 30, opacity: 0 }}
@@ -519,8 +496,6 @@ export default function Home() {
           </motion.button>
         </Link>
       </section>
-
-     
 
       <VolunteerFormModal isOpen={isVolunteerOpen} onClose={() => setVolunteerOpen(false)} />
       <FloatingDonateButton />

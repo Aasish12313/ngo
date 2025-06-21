@@ -1,10 +1,10 @@
 'use client';
 import Link from 'next/link';
-
+import { useState, useEffect } from 'react';
 import React from 'react';
 import Image from 'next/image';
-
 import { motion } from 'framer-motion';
+import VolunteerFormModal from '../../../components/VolunteerFormModal';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -12,15 +12,51 @@ const fadeInUp = {
 };
 
 const About = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false); // ✅ Modal state
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isPortrait, setIsPortrait] = useState(true);
+
+  useEffect(() => {
+    const updateOrientation = () => {
+      setIsPortrait(window.innerHeight > window.innerWidth);
+    };
+    updateOrientation();
+    window.addEventListener('resize', updateOrientation);
+    return () => window.removeEventListener('resize', updateOrientation);
+  }, []);
+
+  const programs = [
+    {
+      title: 'Drug-Free India Fortnight',
+      desc: 'Visoka Welfare Foundation, in collaboration with the Anti Narcotics Task Force Uttar Pradesh, organized a special yoga event during the #DrugFreeIndiaFortnight. This initiative aimed at promoting a drug-free lifestyle by leveraging the power of yoga to reduce stress, enhance focus, and improve overall well-being.',
+      image: 'drug.jpg',
+    },
+    {
+      title: 'Red Relief Campaign',
+      desc: 'Focusing on breaking the stigma around menstruation, this campaign distributed sanitary pads and hosted awareness sessions to empower women with hygiene education.',
+      image: 'red.jpg',
+    },
+    {
+      title: 'EcoBloom: Growing a Greener World',
+      desc: 'At Vishoka, we promote environmental conservation by distributing plants and conducting awareness workshops on tree planting, water conservation, and eco-friendly living. The initiative encouraged communities, especially children, to adopt sustainable practices and care for the environment.',
+      image: 'eco.jpg',
+    },
+    {
+      title: 'Coloring a Better Tomorrow',
+      desc: 'A creative platform for underprivileged children to express their dreams via art. Their artwork was exhibited to raise funds for educational support.',
+      image: 'color.jpg',
+    },
+  ];
+
+  const team = [
+    ['Alka Tiwari', 'Co-Director', 'person1.jpg', 'Dedicated to sustainable impact and community-led development.'],
+    ['Pradeep Tiwari', 'Co-Director', 'person2.jpg', 'Leads all program execution and operational strategy.']
+  ];
 
   return (
     <div className="text-gray-800">
-   
-
       {/* HERO SECTION */}
       <section className="bg-gradient-to-r from-indigo-800 to-purple-800 text-white py-16 px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div className={`max-w-6xl mx-auto grid ${isPortrait ? 'grid-cols-1' : 'md:grid-cols-2'} gap-12 items-center`}>
           <motion.div variants={fadeInUp} initial="hidden" animate="show">
             <p className="text-sm mb-2 border border-white px-3 py-1 inline-block rounded-full">
               Making Global Impact
@@ -33,17 +69,14 @@ const About = () => {
             </p>
             <div className="mt-6 flex flex-wrap gap-4">
               <Link href="/careers">
-
-              <button className="bg-white text-indigo-700 px-6 py-2 rounded-full font-semibold hover:bg-indigo-100 transition duration-300">
-                Join Our Mission
-              </button>
+                <button className="bg-white text-indigo-700 px-6 py-2 rounded-full font-semibold hover:bg-indigo-100 transition duration-300">
+                  Join Our Mission
+                </button>
               </Link>
-              
               <Link href="/impact">
-
-              <button className="bg-transparent border border-white px-6 py-2 rounded-full font-semibold hover:bg-white hover:text-indigo-700 transition duration-300">
-                See Our Impact
-              </button>
+                <button className="bg-transparent border border-white px-6 py-2 rounded-full font-semibold hover:bg-white hover:text-indigo-700 transition duration-300">
+                  See Our Impact
+                </button>
               </Link>
             </div>
           </motion.div>
@@ -73,21 +106,17 @@ const About = () => {
 
       {/* MESSAGE FROM DIRECTOR */}
       <section className="bg-gray-50 py-16 px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div className={`max-w-6xl mx-auto grid ${isPortrait ? 'grid-cols-1' : 'md:grid-cols-2'} gap-12 items-center`}>
           <motion.div variants={fadeInUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
             <p className="text-indigo-600 font-medium mb-2">Message from the Director</p>
-            <h2 className="text-3xl font-bold mb-4">
-              Leading with Purpose, Inspiring Change
-            </h2>
+            <h2 className="text-3xl font-bold mb-4">Leading with Purpose, Inspiring Change</h2>
             <p className="mb-4 text-gray-700 text-justify">
               "At Visoka Welfare Foundation, we believe that every individual has the power to create meaningful change in their community. Our journey began with a simple yet profound vision: to build a world where no one is left behind, where every voice is heard, and where sustainable development becomes a reality for all."
             </p>
             <p className="mb-4 text-gray-700 text-justify">
               "Through our dedicated programs in education, women's empowerment, environmental conservation, and community development, we have witnessed the incredible transformation that occurs when people come together with a shared purpose. I invite you to join us in this mission to create lasting impact."
             </p>
-            <p className="text-gray-700 font-medium">
-              - Alka Tiwari, Co-Director
-            </p>
+            <p className="text-gray-700 font-medium">- Alka Tiwari, Co-Director</p>
           </motion.div>
           <motion.div className="relative" variants={fadeInUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
             <Image
@@ -109,30 +138,8 @@ const About = () => {
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-2">Our Programs</h2>
           <p className="mb-10 text-gray-600">Impactful initiatives across sectors.</p>
-
-          <div className="grid gap-8 grid-cols-1 md:grid-cols-2">
-            {[
-              {
-                title: 'Drug-Free India Fortnight',
-                desc: 'Visoka Welfare Foundation, in collaboration with the Anti Narcotics Task Force Uttar Pradesh, organized a special yoga event during the #DrugFreeIndiaFortnight. This initiative aimed at promoting a drug-free lifestyle by leveraging the power of yoga to reduce stress, enhance focus, and improve overall well-being.',
-                image: 'drug.jpg',
-              },
-              {
-                title: 'Red Relief Campaign',
-                desc: 'Focusing on breaking the stigma around menstruation, this campaign distributed sanitary pads and hosted awareness sessions to empower women with hygiene education.',
-                image: 'red.jpg',
-              },
-              {
-                title: 'EcoBloom: Growing a Greener World',
-                desc: 'At Vishoka, we promote environmental conservation by distributing plants and conducting awareness workshops on tree planting, water conservation, and eco-friendly living. The initiative encouraged communities, especially children, to adopt sustainable practices and care for the environment.',
-                image: 'eco.jpg',
-              },
-              {
-                title: 'Coloring a Better Tomorrow',
-                desc: 'A creative platform for underprivileged children to express their dreams via art. Their artwork was exhibited to raise funds for educational support.',
-                image: 'color.jpg',
-              },
-            ].map((prog, idx) => (
+          <div className={`grid gap-8 ${isPortrait ? 'grid-cols-1' : 'md:grid-cols-2'}`}>
+            {programs.map((prog, idx) => (
               <motion.div
                 key={idx}
                 variants={fadeInUp}
@@ -164,11 +171,8 @@ const About = () => {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Leadership Team</h2>
           <p className="mb-10 text-gray-600">Guided by values, driven by purpose.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
-            {[
-              ['Alka Tiwari', 'Co-Director', 'person1.jpg', 'Dedicated to sustainable impact and community-led development.'],
-              ['Pradeep Tiwari', 'Co-Director', 'person2.jpg', 'Leads all program execution and operational strategy.']
-            ].map(([name, role, img, desc], i) => (
+          <div className={`grid ${isPortrait ? 'grid-cols-1' : 'md:grid-cols-2'} gap-8 justify-items-center`}>
+            {team.map(([name, role, img, desc], i) => (
               <motion.div
                 key={i}
                 className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 w-full max-w-sm"
@@ -195,7 +199,7 @@ const About = () => {
 
       {/* CTA SECTION */}
       <section className="bg-gradient-to-r from-indigo-800 to-purple-800 text-white py-16 px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div className={`max-w-6xl mx-auto grid ${isPortrait ? 'grid-cols-1' : 'md:grid-cols-2'} gap-12 items-center`}>
           <motion.div variants={fadeInUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
             <h2 className="text-2xl font-bold mb-4">Be Part of the Change</h2>
             <p className="mb-6 text-justify">
@@ -218,12 +222,11 @@ const About = () => {
             <h3 className="font-bold mb-4">Get Involved</h3>
             <div className="space-y-3">
               <button
-                onClick={() => setIsModalOpen(true)} // ✅ Open modal
+                onClick={() => setIsModalOpen(true)}
                 className="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700 transition duration-300"
               >
                 Become a Volunteer
               </button>
-              
               <Link href="/donate">
                 <button className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition duration-300">
                   Donate Now
@@ -237,10 +240,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* ✅ Render modal */}
       <VolunteerFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-
-    
     </div>
   );
 };
