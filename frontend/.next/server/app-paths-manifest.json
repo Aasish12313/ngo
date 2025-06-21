@@ -1,4 +1,14 @@
 {
+<<<<<<< HEAD
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/page": "app/page.js"
+=======
+  "/(main)/about/page": "app/(main)/about/page.js",
+  "/page": "app/page.js",
+  "/(main)/careers/page": "app/(main)/careers/page.js",
+  "/(main)/impact/page": "app/(main)/impact/page.js",
+  "/(main)/programs/page": "app/(main)/programs/page.js",
+  "/(main)/impact-map/page": "app/(main)/impact-map/page.js",
+  "/(main)/contact/page": "app/(main)/contact/page.js"
+>>>>>>> 5be0dd1c535ca1c215f885c326198cade47e085b
 }
