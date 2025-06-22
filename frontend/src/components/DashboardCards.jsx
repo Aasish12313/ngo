@@ -5,28 +5,28 @@ import { Users, FolderOpen, Heart, PieChart } from 'lucide-react';
 const cardData = [
   {
     title: 'Total Donations',
-    value: '₹24,56,789',
+    value: '₹0',
     change: '+12.5% from last month',
     icon: <PieChart className="text-blue-600" />,
     bg: 'bg-blue-50',
   },
   {
     title: 'Active Donors',
-    value: '1,247',
+    value: '0',
     change: '+89 new this month',
     icon: <Heart className="text-green-600" />,
     bg: 'bg-green-50',
   },
   {
     title: 'Active Projects',
-    value: '18',
+    value: '0',
     change: 'Across 8 states',
     icon: <FolderOpen className="text-purple-600" />,
     bg: 'bg-purple-50',
   },
   {
     title: 'Beneficiaries Served',
-    value: '12,456',
+    value: '0',
     change: '+856 this month',
     icon: <Users className="text-orange-600" />,
     bg: 'bg-orange-50',
