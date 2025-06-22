@@ -3,15 +3,15 @@ import { motion } from 'framer-motion';
 
 const projects = [
   {
-    name: 'Rural Education Initiative',
-    location: 'Maharashtra',
+    name: 'Dream Shala',
+    location: 'Lucknow',
     raised: 375000,
     target: 500000,
     beneficiaries: 850,
     progress: 75,
   },
   {
-    name: 'Clean Water Access',
+    name: ' Red Relief Campaign',
     location: 'Rajasthan',
     raised: 480000,
     target: 800000,
@@ -19,7 +19,7 @@ const projects = [
     progress: 60,
   },
   {
-    name: 'Women Skill Development',
+    name: 'Youth Ki Awaaz Fellowship',
     location: 'Karnataka',
     raised: 135000,
     target: 300000,

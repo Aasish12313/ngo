@@ -74,8 +74,8 @@ export default function AdminSidebar() {
         {/* User Info + Logout */}
         <div className="px-4 py-5 border-t bg-white shadow-inner">
           <div className="mb-3">
-            <p className="text-sm font-semibold text-gray-800">👤 Aasish Raj Prasad</p>
-            <p className="text-xs text-gray-500 truncate">founder@hopefoundation.org</p>
+            <p className="text-sm font-semibold text-gray-800">👤 Founder</p>
+            <p className="text-xs text-gray-500 truncate">visokawelfarefoundation@gmail.com</p>
           </div>
           <button
             className="flex items-center w-full px-3 py-2 text-sm text-red-600 font-medium bg-red-50 hover:bg-red-100 rounded-lg gap-2 transition-all"
