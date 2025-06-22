@@ -22,7 +22,7 @@ const GetInvolvedPage = () => {
         <div className="flex flex-col md:flex-row gap-6">
           <button
             onClick={() => setShowModal(true)}
-            className="bg-orange-500 text-white px-8 py-3 rounded-full shadow hover:bg-orange-600 transition"
+            className="bg-green-500 text-white px-8 py-3 rounded-full shadow hover:bg-green-600 transition"
           >
             Volunteer
           </button>
@@ -37,7 +37,7 @@ const GetInvolvedPage = () => {
 
           <button
             onClick={() => router.push('/donate')}
-            className="bg-green-500 text-white px-8 py-3 rounded-full shadow hover:bg-green-600 transition"
+            className="bg-orange-500 text-white px-8 py-3 rounded-full shadow hover:bg-orange-600 transition"
           >
             Donate
           </button>

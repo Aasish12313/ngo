@@ -54,117 +54,168 @@ const About = () => {
 
   return (
     <div className="text-gray-800">
-      {/* HERO SECTION */}
-      <section className="bg-gradient-to-r from-indigo-800 to-purple-800 text-white py-16 px-6">
-        <div className={`max-w-6xl mx-auto grid ${isPortrait ? 'grid-cols-1' : 'md:grid-cols-2'} gap-12 items-center`}>
-          <motion.div variants={fadeInUp} initial="hidden" animate="show">
-            <p className="text-sm mb-2 border border-white px-3 py-1 inline-block rounded-full">
-              Making Global Impact
-            </p>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-              Visoka Welfare Foundation
-            </h1>
-            <p className="mt-4 text-lg text-justify">
-              Visoka Welfare Foundation is a non-governmental organization committed to promoting sustainable development and improving the quality of life for marginalized communities. Founded on the principles of social justice, equality, and environmental stewardship, our foundation works tirelessly to address the most pressing issues facing society today. Through our various programs and initiatives, we aim to empower individuals, protect the environment, and foster holistic community development.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-4">
-              <Link href="/careers">
-                <button className="bg-white text-indigo-700 px-6 py-2 rounded-full font-semibold hover:bg-indigo-100 transition duration-300">
-                  Join Our Mission
-                </button>
-              </Link>
-              <Link href="/impact">
-                <button className="bg-transparent border border-white px-6 py-2 rounded-full font-semibold hover:bg-white hover:text-indigo-700 transition duration-300">
-                  See Our Impact
-                </button>
-              </Link>
-            </div>
-          </motion.div>
+{/* HERO SECTION */}
+<section className="relative py-20 px-4 sm:px-6 md:px-16 bg-gradient-to-br from-[#fff8f2] via-[#fef5ea] to-[#ffeada] text-[#1c1c1c]">
+  {/* Decorative Gradient Background Layer */}
+  <div className="absolute inset-0 bg-gradient-to-tr from-orange-100/30 via-white/10 to-transparent opacity-20 pointer-events-none z-0"></div>
 
-          <motion.div
-            className="bg-white/10 rounded-2xl shadow-xl relative h-72 w-full flex items-center justify-center"
-            variants={fadeInUp}
-            initial="hidden"
-            animate="show"
+  <div className={`relative z-10 max-w-7xl mx-auto grid ${isPortrait ? 'grid-cols-1' : 'md:grid-cols-2'} gap-12 items-center`}>
+    {/* Left Text Block */}
+    <motion.div
+      variants={fadeInUp}
+      initial="hidden"
+      animate="show"
+      className="text-left"
+    >
+      <p className="text-xs sm:text-sm mb-3 inline-block px-4 py-1 bg-orange-100 text-orange-700 rounded-full tracking-wide shadow-sm">
+        Making Global Impact
+      </p>
+
+      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-snug text-orange-600 drop-shadow-md">
+        Vishoka Welfare Foundation
+      </h1>
+
+      <p className="mt-5 text-md sm:text-lg text-gray-700 leading-relaxed tracking-wide text-justify">
+        Vishoka Welfare Foundation is a non-governmental organization committed to promoting sustainable development and improving the quality of life for marginalized communities. We empower individuals, protect the environment, and foster holistic community development.
+      </p>
+
+      {/* Call to Action Buttons */}
+      <div className="mt-8 flex flex-wrap gap-4">
+        <Link href="/careers">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full shadow-lg transition duration-300"
           >
-            <div className="w-full max-w-[750px] h-auto rounded-xl border-4 border-white bg-white mx-auto overflow-hidden">
-              <Image
-                src="/images/logo.png"
-                alt="Vishoka Logo"
-                layout="responsive"
-                width={774}
-                height={407}
-                className="object-contain rounded-md"
-              />
-            </div>
-            <p className="absolute bottom-2 w-full text-center text-sm text-white bg-black/40 py-1">
-              Empowering lives through action
-            </p>
-          </motion.div>
-        </div>
-      </section>
+            Join Our Mission
+          </motion.button>
+        </Link>
+        <Link href="/impact">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            className="bg-white text-indigo-700 border border-indigo-300 hover:bg-indigo-50 px-6 py-3 rounded-full font-semibold transition duration-300 shadow-sm"
+          >
+            See Our Impact
+          </motion.button>
+        </Link>
+      </div>
+    </motion.div>
 
-      {/* MESSAGE FROM DIRECTOR */}
-      <section className="bg-gray-50 py-16 px-6">
-        <div className={`max-w-6xl mx-auto grid ${isPortrait ? 'grid-cols-1' : 'md:grid-cols-2'} gap-12 items-center`}>
-          <motion.div variants={fadeInUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
-            <p className="text-indigo-600 font-medium mb-2">Message from the Director</p>
-            <h2 className="text-3xl font-bold mb-4">Leading with Purpose, Inspiring Change</h2>
-            <p className="mb-4 text-gray-700 text-justify">
-              "At Visoka Welfare Foundation, we believe that every individual has the power to create meaningful change in their community. Our journey began with a simple yet profound vision: to build a world where no one is left behind, where every voice is heard, and where sustainable development becomes a reality for all."
-            </p>
-            <p className="mb-4 text-gray-700 text-justify">
-              "Through our dedicated programs in education, women's empowerment, environmental conservation, and community development, we have witnessed the incredible transformation that occurs when people come together with a shared purpose. I invite you to join us in this mission to create lasting impact."
-            </p>
-            <p className="text-gray-700 font-medium">- Alka Tiwari, Co-Director</p>
-          </motion.div>
-          <motion.div className="relative" variants={fadeInUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
+    {/* Right Image Box */}
+    <motion.div
+      className="bg-white/30 rounded-2xl shadow-xl h-72 sm:h-80 md:h-[22rem] w-full flex items-center justify-center relative"
+      variants={fadeInUp}
+      initial="hidden"
+      animate="show"
+    >
+      <div className="w-full max-w-[650px] h-auto rounded-xl border-4 border-white bg-white overflow-hidden shadow-lg">
+        <Image
+          src="/images/logo.png"
+          alt="Vishoka Logo"
+          layout="responsive"
+          width={774}
+          height={407}
+          className="object-contain rounded-md"
+        />
+      </div>
+     
+    </motion.div>
+  </div>
+</section>
+
+      {/* MESSAGE FROM THE DIRECTOR */}
+<section className="relative bg-gradient-to-br from-[#fefcfb] via-[#f9f7f4] to-[#f2f0ec] py-20 px-4 sm:px-6 md:px-16 text-[#1c1c1c] overflow-hidden">
+  {/* Decorative Background Overlay */}
+  <div className="absolute inset-0 bg-[url('/images/bg-pattern.png')] opacity-5 pointer-events-none z-0 bg-cover bg-no-repeat"></div>
+
+  <div className={`relative z-10 max-w-6xl mx-auto grid ${isPortrait ? 'grid-cols-1' : 'md:grid-cols-2'} gap-12 items-center`}>
+    {/* Text Block */}
+    <motion.div
+      variants={fadeInUp}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+      className="text-left"
+    >
+      <p className="text-sm sm:text-base mb-2 inline-block px-4 py-1 bg-indigo-100 text-indigo-700 rounded-full font-medium tracking-wide shadow-sm">
+        Message from the Director
+      </p>
+
+      <h2 className="text-3xl sm:text-4xl font-extrabold mb-6 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent drop-shadow-sm">
+        Leading with Purpose, Inspiring Change
+      </h2>
+
+      <p className="mb-4 text-gray-700 text-justify leading-relaxed tracking-wide">
+        “At Vishoka Welfare Foundation, we believe that every individual has the power to create meaningful change in their community. Our journey began with a simple yet profound vision: to build a world where no one is left behind, where every voice is heard, and where sustainable development becomes a reality for all.”
+      </p>
+
+      <p className="mb-4 text-gray-700 text-justify leading-relaxed tracking-wide">
+        “Through our dedicated programs in education, women's empowerment, environmental conservation, and community development, we’ve witnessed the incredible transformation that occurs when people come together with a shared purpose. I invite you to join us in this mission to create lasting impact.”
+      </p>
+
+      <p className="text-indigo-700 font-semibold mt-4">– Alka Tiwari, Co-Director</p>
+    </motion.div>
+
+    {/* Director Image Card */}
+    <motion.div
+      className="relative"
+      variants={fadeInUp}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+    >
+      <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+        <Image
+          src="/images/team/person1.jpg"
+          alt="Director"
+          width={500}
+          height={350}
+          className="w-full h-auto object-cover rounded-xl"
+        />
+        <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-md px-5 py-2 rounded-lg text-indigo-700 font-semibold shadow-md text-sm sm:text-base">
+          Leading Change
+        </div>
+      </div>
+    </motion.div>
+  </div>
+</section>
+
+
+{/* OUR PROGRAMS */}
+<section className="bg-[#fffaf5] py-16 px-6">
+  <div className="max-w-6xl mx-auto text-center">
+    <h2 className="text-3xl font-bold mb-2 text-orange-700">Our Programs</h2>
+    <p className="mb-10 text-gray-600">Impactful initiatives across sectors.</p>
+
+    <div className={`grid gap-8 ${isPortrait ? 'grid-cols-1' : 'md:grid-cols-2'}`}>
+      {programs.map((prog, idx) => (
+        <motion.div
+          key={idx}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="bg-white p-5 rounded-2xl border border-orange-100 shadow-md hover:shadow-orange-300 transition-shadow duration-300 transform hover:scale-105 flex flex-col"
+        >
+          {/* Image Section */}
+          <div className="w-full h-[250px] relative rounded-lg overflow-hidden mb-4 shadow-sm">
             <Image
-              src="/images/team/person1.jpg"
-              alt="Director Message"
-              width={500}
-              height={350}
-              className="rounded-xl shadow-xl object-cover w-full"
+              src={`/images/programs/${prog.image}`}
+              alt={prog.title}
+              fill
+              className="object-cover"
             />
-            <div className="absolute bottom-4 right-4 bg-white rounded-lg px-4 py-2 shadow text-indigo-700 font-semibold">
-              Leading Change
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* OUR PROGRAMS */}
-      <section className="bg-white py-16 px-6">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-2">Our Programs</h2>
-          <p className="mb-10 text-gray-600">Impactful initiatives across sectors.</p>
-          <div className={`grid gap-8 ${isPortrait ? 'grid-cols-1' : 'md:grid-cols-2'}`}>
-            {programs.map((prog, idx) => (
-              <motion.div
-                key={idx}
-                variants={fadeInUp}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-                className="bg-gray-50 rounded-xl shadow-md overflow-hidden transform hover:scale-105 hover:shadow-xl transition duration-300 flex flex-col"
-              >
-                <div className="w-full h-[250px] relative">
-                  <Image
-                    src={`/images/programs/${prog.image}`}
-                    alt={prog.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-5 text-left flex-1 flex flex-col">
-                  <h3 className="font-semibold text-xl mb-2">{prog.title}</h3>
-                  <p className="text-sm text-gray-600 text-justify flex-1">{prog.desc}</p>
-                </div>
-              </motion.div>
-            ))}
           </div>
-        </div>
-      </section>
+
+          {/* Content */}
+          <div className="text-left flex-1 flex flex-col">
+            <h3 className="text-lg sm:text-xl font-semibold mb-2 text-orange-700">{prog.title}</h3>
+            <p className="text-sm sm:text-base text-gray-700 text-justify flex-1">{prog.desc}</p>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* TEAM SECTION */}
       <section className="bg-gray-100 py-16 px-6">

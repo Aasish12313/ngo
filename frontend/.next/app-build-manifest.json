@@ -10,75 +10,31 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
-<<<<<<< HEAD
-=======
-    ],
-    "/(main)/hiring/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(main)/hiring/page.js"
-    ],
-    "/(main)/careers/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(main)/careers/page.js"
-    ],
-    "/(main)/careers/apply/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(main)/careers/apply/page.css",
-      "static/chunks/app/(main)/careers/apply/page.js"
-    ],
-    "/(main)/about/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(main)/about/page.js"
-    ],
-    "/(main)/donate/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(main)/donate/page.js"
     ],
     "/(main)/programs/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(main)/programs/page.js"
     ],
-    "/(main)/impact/page": [
+    "/(main)/about/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(main)/impact/page.js"
-    ],
-    "/(main)/get-involved/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(main)/get-involved/page.js"
-    ],
-    "/(main)/impact-map/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(main)/impact-map/page.js"
-    ],
-    "/(main)/gallery/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(main)/gallery/page.js"
+      "static/chunks/app/(main)/about/page.js"
     ],
     "/(main)/contact/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(main)/contact/page.js"
     ],
-    "/admin/contactMessage/page": [
+    "/(main)/impact/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/admin/contactMessage/page.js"
+      "static/chunks/app/(main)/impact/page.js"
     ],
-    "/_not-found/page": [
+    "/(main)/careers/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
->>>>>>> 5be0dd1c535ca1c215f885c326198cade47e085b
+      "static/chunks/app/(main)/careers/page.js"
     ]
   }
 }
