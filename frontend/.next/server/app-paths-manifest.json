@@ -1,7 +1,0 @@
-{
-  "/(main)/programs/page": "app/(main)/programs/page.js",
-  "/(main)/careers/page": "app/(main)/careers/page.js",
-  "/page": "app/page.js",
-  "/(main)/impact/page": "app/(main)/impact/page.js",
-  "/(main)/about/page": "app/(main)/about/page.js"
-}
