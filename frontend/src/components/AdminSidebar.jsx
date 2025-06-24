@@ -1,10 +1,10 @@
 'use client';
+
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import {
   LayoutDashboard, Heart, Folder, Users, Calendar,
-  Target, Image, FileText, UserRound, Settings, LogOut,
-  Inbox, MessageSquare, FileInput
+  Target, Image, Settings, LogOut, Inbox, MessageSquare, FileInput
 } from 'lucide-react';
 
 const navItems = [
@@ -28,14 +28,18 @@ export default function AdminSidebar() {
     <aside className="w-[240px] h-screen bg-gradient-to-b from-white to-gray-50 border-r shadow-md flex flex-col justify-between fixed left-0 top-0 z-40">
       {/* Top: Logo and Navigation */}
       <div className="flex flex-col h-full">
-        {/* Logo */}
-        <div className="flex items-center px-6 py-5 gap-3 border-b shadow-sm">
-          <div className="bg-gradient-to-r from-blue-500 to-indigo-500 p-2 rounded-xl shadow-lg">
-            <Heart className="text-white" size={20} />
-          </div>
+        {/* Logo Section */}
+        <div className="flex items-center px-6 py-5 gap-4 border-b shadow-sm">
+          <img
+            src="/images/vishoka_logo.png"
+            alt="Logo"
+            className="w-10 h-10 object-contain"
+          />
           <div>
-            <h1 className="text-lg font-bold text-gray-800">Visoka Welfare  Foundation</h1>
-            <p className="text-xs text-gray-500">Admin Portal</p>
+            <h1 className="text-lg font-bold text-gray-800 leading-tight">
+              Visoka Welfare<br />Foundation
+            </h1>
+            <p className="text-sm text-gray-500">Admin Portal</p>
           </div>
         </div>
 
@@ -52,10 +56,9 @@ export default function AdminSidebar() {
                   href={href}
                   key={name}
                   className={`group relative flex items-center px-4 py-2 rounded-lg text-sm font-medium gap-3 transition-all duration-300
-                    ${
-                      isActive
-                        ? 'bg-blue-100 text-blue-700'
-                        : 'text-gray-700 hover:bg-gray-100 hover:text-blue-600'
+                    ${isActive
+                      ? 'bg-blue-100 text-blue-700'
+                      : 'text-gray-700 hover:bg-gray-100 hover:text-blue-600'
                     }`}
                 >
                   {isActive && (
