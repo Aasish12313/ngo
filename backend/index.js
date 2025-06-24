@@ -4,7 +4,8 @@ const cors = require('cors');
 // Routers
 const contactRouter = require('./routers/contactRouter');
 const applicationRouter = require('./routers/applicationRouter');
-const impactRouter = require('./routers/impactRouter'); // ✅ Added Impact Router
+const impactRouter = require('./routers/impactRouter'); // ✅ Fixed typo: 'impactRouters' -> 'impactRouter'
+const galleryRouter = require('./routers/galleryRouter'); // ✅ Added
 
 const app = express();
 const port = 5000;
@@ -22,8 +23,9 @@ app.use(express.json());
 app.use('/contacts', contactRouter);
 app.use('/applications', applicationRouter);
 app.use('/impact', impactRouter); // ✅ Impact route
+app.use('/gallery', galleryRouter); // ✅ Gallery route
 
-// Test Routes
+// Optional Test Routes (can be removed)
 app.get('/', (req, res) => {
   res.send('response from express');
 });
