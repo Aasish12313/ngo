@@ -1,8 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import { Toaster } from "react-hot-toast";
+import ConditionalLayout from "../components/ConditionalLayout"; // 👈 custom client wrapper
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,15 +21,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      > <Navbar/>
-     
-
-<Toaster position="top-center" />
-
-        {children}
-       <Footer/> 
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Toaster position="top-center" />
+        <ConditionalLayout>{children}</ConditionalLayout>
       </body>
     </html>
   );
