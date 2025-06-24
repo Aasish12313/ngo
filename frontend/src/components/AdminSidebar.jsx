@@ -15,8 +15,6 @@ const navItems = [
   { name: 'Events', href: '/admin/events', icon: <Calendar size={18} /> },
   { name: 'Impact', href: '/admin/impact', icon: <Target size={18} /> },
   { name: 'Gallery', href: '/admin/gallery', icon: <Image size={18} /> },
-  { name: 'Reports', href: '/admin/reports', icon: <FileText size={18} /> },
-  { name: 'Users', href: '/admin/users', icon: <UserRound size={18} /> },
   { name: 'Messages', href: '/admin/contactMessage', icon: <MessageSquare size={18} /> },
   { name: 'Comments', href: '/admin/comment', icon: <FileInput size={18} /> },
   { name: 'Donations', href: '/admin/dnoation', icon: <Inbox size={18} /> },
@@ -36,7 +34,7 @@ export default function AdminSidebar() {
             <Heart className="text-white" size={20} />
           </div>
           <div>
-            <h1 className="text-lg font-bold text-gray-800">Hope Foundation</h1>
+            <h1 className="text-lg font-bold text-gray-800">Visoka Welfare  Foundation</h1>
             <p className="text-xs text-gray-500">Admin Portal</p>
           </div>
         </div>
