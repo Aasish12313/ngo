@@ -12,7 +12,6 @@ const navItems = [
   { name: 'Dashboard', href: '/admin', icon: <LayoutDashboard size={18} /> },
   { name: 'Applications', href: '/admin/applications', icon: <Heart size={18} /> },
   { name: 'Projects', href: '/admin/dnoation', icon: <Folder size={18} /> },
-  { name: 'Volunteers', href: '/admin/volunteers', icon: <Users size={18} /> },
   { name: 'Events', href: '/admin/events', icon: <Calendar size={18} /> },
   { name: 'Impact', href: '/admin/impact', icon: <Target size={18} /> },
   { name: 'Gallery', href: '/admin/gallery', icon: <Image size={18} /> },
