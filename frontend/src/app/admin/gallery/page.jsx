@@ -6,8 +6,8 @@ import { Trash2, UploadCloud, ImagePlus } from 'lucide-react';
 
 export default function AdminGalleryPage() {
   const [images, setImages] = useState([]);
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [previewURL, setPreviewURL] = useState('');
+  const [selectedFiles, setSelectedFiles] = useState([]);
+  const [previewURLs, setPreviewURLs] = useState([]);
   const [isUploading, setIsUploading] = useState(false);
 
   useEffect(() => {
@@ -24,23 +24,26 @@ export default function AdminGalleryPage() {
   };
 
   const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    setSelectedFile(file);
-    setPreviewURL(URL.createObjectURL(file));
+    const files = Array.from(e.target.files);
+    setSelectedFiles(files);
+    setPreviewURLs(files.map((file) => URL.createObjectURL(file)));
   };
 
   const handleUpload = async () => {
-    if (!selectedFile) return;
+    if (selectedFiles.length === 0) return;
     setIsUploading(true);
 
     const formData = new FormData();
-    formData.append('image', selectedFile);
+    selectedFiles.forEach((file) => {
+      formData.append('images', file);
+    });
 
     try {
       const res = await axios.post('http://localhost:5000/gallery/upload', formData);
-      setImages([res.data, ...images]);
-      setSelectedFile(null);
-      setPreviewURL('');
+      // `res.data` is an array of uploaded image objects
+      setImages([...res.data, ...images]);
+      setSelectedFiles([]);
+      setPreviewURLs([]);
     } catch (err) {
       console.error('Upload failed:', err);
     } finally {
@@ -64,18 +67,19 @@ export default function AdminGalleryPage() {
         {/* Upload Section */}
         <div className="bg-white rounded-xl shadow p-6 mb-10">
           <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-            <ImagePlus className="text-blue-600" /> Upload New Image
+            <ImagePlus className="text-blue-600" /> Upload New Images
           </h2>
 
           <div className="flex flex-col sm:flex-row sm:items-center gap-6">
             <input
               type="file"
               onChange={handleFileChange}
+              multiple
               className="file-input file-input-bordered w-full sm:w-1/2"
             />
             <button
               onClick={handleUpload}
-              disabled={isUploading || !selectedFile}
+              disabled={isUploading || selectedFiles.length === 0}
               className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition"
             >
               <UploadCloud size={20} />
@@ -83,10 +87,17 @@ export default function AdminGalleryPage() {
             </button>
           </div>
 
-          {previewURL && (
-            <div className="mt-4">
-              <p className="text-sm text-gray-500 mb-1">Preview:</p>
-              <img src={previewURL} alt="Preview" className="h-48 rounded border object-contain" />
+          {/* Previews */}
+          {previewURLs.length > 0 && (
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-4">
+              {previewURLs.map((url, index) => (
+                <img
+                  key={index}
+                  src={url}
+                  alt={`Preview ${index}`}
+                  className="h-32 w-full object-contain rounded border"
+                />
+              ))}
             </div>
           )}
         </div>

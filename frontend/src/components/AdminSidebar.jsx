@@ -16,7 +16,7 @@ const navItems = [
   { name: 'Impact', href: '/admin/impact', icon: <Target size={18} /> },
   { name: 'Gallery', href: '/admin/gallery', icon: <Image size={18} /> },
   { name: 'Messages', href: '/admin/contactMessage', icon: <MessageSquare size={18} /> },
-  { name: 'Comments', href: '/admin/comment', icon: <FileInput size={18} /> },
+  { name: 'Comments', href: '/admin/comments', icon: <FileInput size={18} /> },
   { name: 'Donations', href: '/admin/dnoation', icon: <Inbox size={18} /> },
   { name: 'Settings', href: '/admin/settings', icon: <Settings size={18} /> },
 ];

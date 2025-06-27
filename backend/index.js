@@ -6,6 +6,7 @@ const contactRouter = require('./routers/contactRouter');
 const applicationRouter = require('./routers/applicationRouter');
 const impactRouter = require('./routers/impactRouter'); // ✅ Fixed typo: 'impactRouters' -> 'impactRouter'
 const galleryRouter = require('./routers/galleryRouter'); // ✅ Added
+const testimonialRouter = require('./routers/testimonialRouter');
 
 const app = express();
 const port = 5000;
@@ -24,6 +25,7 @@ app.use('/contacts', contactRouter);
 app.use('/applications', applicationRouter);
 app.use('/impact', impactRouter); // ✅ Impact route
 app.use('/gallery', galleryRouter); // ✅ Gallery route
+app.use('/testimonial', testimonialRouter);
 
 // Optional Test Routes (can be removed)
 app.get('/', (req, res) => {

@@ -13,7 +13,6 @@ export default function ContactMessages() {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-     
         const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/contacts/getall`);
         setMessages(res.data);
         setFiltered(res.data);
@@ -27,7 +26,6 @@ export default function ContactMessages() {
     fetchMessages();
   }, []);
 
-  // Filter by name or email
   useEffect(() => {
     const query = searchQuery.toLowerCase();
     const results = messages.filter(
@@ -38,27 +36,27 @@ export default function ContactMessages() {
     setFiltered(results);
   }, [searchQuery, messages]);
 
-  // Format date/time
   const formatDateTime = iso => {
     const date = new Date(iso);
     return date.toLocaleString();
   };
 
   return (
-    <div className="p-6 bg-gradient-to-b from-green-300 to-white min-h-screen">
-      <h1 className="text-3xl font-bold text-center mb-6 text-black-800">
-        Contact Message 📬
+    <div className="p-6 bg-white min-h-screen">
+      <h1 className="text-3xl font-bold text-center mb-6 text-black">
+        Contact Messages 📬
       </h1>
 
       <div className="mb-4 flex justify-center">
         <div className="relative w-full max-w-md">
           <input
-            type="text"
-            placeholder="Search by name or email..."
-            className="w-full px-4 py-2 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-black-400"
-            value={searchQuery}
-            onChange={e => setSearchQuery(e.target.value)}
-          />
+  type="text"
+  placeholder="Search by name or email..."
+  className="w-full px-4 py-2 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-black text-black"
+  value={searchQuery}
+  onChange={e => setSearchQuery(e.target.value)}
+/>
+
           <SearchIcon className="absolute right-3 top-2.5 text-gray-400" size={20} />
         </div>
       </div>
@@ -70,8 +68,7 @@ export default function ContactMessages() {
       ) : (
         <div className="overflow-x-auto shadow-lg rounded-xl">
           <table className="min-w-full bg-white text-sm rounded-lg">
-            <thead className="bg-black
-            -600 text-white text-left">
+            <thead className="bg-black text-white text-left">
               <tr>
                 <th className="py-3 px-4">#</th>
                 <th className="py-3 px-4">Name</th>
@@ -84,7 +81,7 @@ export default function ContactMessages() {
             </thead>
             <tbody className="text-gray-700">
               {filtered.map((msg, idx) => (
-                <tr key={msg._id} className="hover:bg-black-50 border-b border-gray-200">
+                <tr key={msg._id} className="hover:bg-gray-100 border-b border-gray-200">
                   <td className="py-2 px-4">{idx + 1}</td>
                   <td className="py-2 px-4 font-medium">{msg.name}</td>
                   <td className="py-2 px-4">{msg.email}</td>
@@ -94,7 +91,7 @@ export default function ContactMessages() {
                   <td className="py-2 px-4">
                     <a
                       href={`mailto:${msg.email}?subject=Re: Your Contact Message`}
-                      className="inline-flex items-center gap-2 bg-black-500 hover:bg-black-600 text-white px-4 py-1.5 rounded-lg transition"
+                      className="inline-flex items-center gap-2 border border-black text-black px-4 py-1.5 rounded-lg transition hover:bg-black hover:text-white"
                     >
                       <MailIcon size={16} />
                       Reply

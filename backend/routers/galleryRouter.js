@@ -12,41 +12,50 @@ const upload = multer({ storage });
 // Cloudinary config
 cloudinary.config({
   cloud_name: 'du4tklzpq',
-  api_key: '862668851362822',         // 🔁 Replace
-  api_secret: 'nMqwplSkAD5t6DRK6oMkMCbT3Oo',   // 🔁 Replace
+  api_key: '862668851362822',
+  api_secret: 'nMqwplSkAD5t6DRK6oMkMCbT3Oo',
 });
 
-// ✅ Upload Endpoint
-router.post('/upload', upload.single('image'), async (req, res) => {
+// ✅ Upload Multiple Images
+router.post('/upload', upload.array('images'), async (req, res) => {
   try {
-    if (!req.file) {
-      return res.status(400).json({ error: 'No image file provided' });
+    if (!req.files || req.files.length === 0) {
+      return res.status(400).json({ error: 'No images provided' });
     }
 
-    const stream = cloudinary.uploader.upload_stream(
-      {
-        upload_preset: 'anupreset47',
-        folder: 'ngo_gallery',
-      },
-      async (error, result) => {
-        if (error) {
-          console.error('Cloudinary Upload Error:', error);
-          return res.status(500).json({ error: 'Cloudinary upload failed' });
-        }
+    const savedImages = [];
 
-        const newImage = new Gallery({
-          imageUrl: result.secure_url,
-          publicId: result.public_id,
+    // Loop through files and upload each
+    for (const file of req.files) {
+      const streamUpload = () =>
+        new Promise((resolve, reject) => {
+          const stream = cloudinary.uploader.upload_stream(
+            {
+              upload_preset: 'anupreset47',
+              folder: 'ngo_gallery',
+            },
+            (error, result) => {
+              if (error) return reject(error);
+              resolve(result);
+            }
+          );
+          stream.end(file.buffer);
         });
 
-        await newImage.save();
-        res.status(201).json(newImage);
-      }
-    );
+      const result = await streamUpload();
 
-    stream.end(req.file.buffer);
+      const newImage = new Gallery({
+        imageUrl: result.secure_url,
+        publicId: result.public_id,
+      });
+
+      const saved = await newImage.save();
+      savedImages.push(saved);
+    }
+
+    res.status(201).json(savedImages);
   } catch (err) {
-    console.error('Upload Error:', err);
+    console.error('Multiple Upload Error:', err);
     res.status(500).json({ error: err.message });
   }
 });
@@ -72,8 +81,7 @@ router.delete('/:id', async (req, res) => {
     }
 
     // Delete from Cloudinary
-    const cloudRes = await cloudinary.uploader.destroy(image.publicId);
-    console.log('Cloudinary Response:', cloudRes);
+    await cloudinary.uploader.destroy(image.publicId);
 
     // Delete from MongoDB
     await image.deleteOne();
