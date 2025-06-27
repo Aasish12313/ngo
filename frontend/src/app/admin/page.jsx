@@ -6,7 +6,8 @@ import DonationTrendsChart from '../../components/DonationTrendsChart';
 import ProjectCategoryChart from '../../components/ProjectCategoryChart';
 import FundAllocationChart from '../../components/FundAllocationChart';
 import ActiveProjects from '../../components/ActiveProjects';
-import RecentActivity from '../../components/RecentActivity';
+import RecentEventsBox from '../../components/RecentEventsBox';
+
 
 export default function AdminDashboard() {
   return (
@@ -71,16 +72,16 @@ export default function AdminDashboard() {
         <FundAllocationChart />
       </motion.div>
 
-      {/* 🧩 Bottom Panels */}
-      <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 gap-6"
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.5 }}
-      >
-        <ActiveProjects />
-        <RecentActivity />
-      </motion.div>
+     {/* 🧩 Bottom Panels */}
+<motion.div
+  className="grid grid-cols-1 md:grid-cols-2 gap-6"
+  initial={{ y: 20, opacity: 0 }}
+  animate={{ y: 0, opacity: 1 }}
+  transition={{ delay: 0.5 }}
+>
+  <ActiveProjects />
+  <RecentEventsBox /> {/* 🔁 replaced RecentActivity */}
+</motion.div>
     </motion.div>
   );
 }
