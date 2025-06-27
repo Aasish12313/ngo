@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('../connection');
 
 const gallerySchema = new mongoose.Schema({
   imageUrl: { type: String, required: true },
