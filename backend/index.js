@@ -7,6 +7,7 @@ const applicationRouter = require('./routers/applicationRouter');
 const impactRouter = require('./routers/impactRouter'); // ✅ Fixed typo: 'impactRouters' -> 'impactRouter'
 const galleryRouter = require('./routers/galleryRouter'); // ✅ Added
 const testimonialRouter = require('./routers/testimonialRouter');
+const eventRouter = require('./routers/eventRouter');
 
 const app = express();
 const port = 5000;
@@ -21,11 +22,13 @@ app.use(cors({
 app.use(express.json());
 
 // API Routes
+
 app.use('/contacts', contactRouter);
 app.use('/applications', applicationRouter);
 app.use('/impact', impactRouter); // ✅ Impact route
 app.use('/gallery', galleryRouter); // ✅ Gallery route
 app.use('/testimonial', testimonialRouter);
+app.use('/events', eventRouter);
 
 // Optional Test Routes (can be removed)
 app.get('/', (req, res) => {
@@ -46,5 +49,5 @@ app.get('/delete', (req, res) => {
 
 // Start the server
 app.listen(port, () => {
-  console.log(`✅ Server started on http://localhost:${port}`);
+console.log(`✅ Server started on http://localhost:${port}`);
 });
