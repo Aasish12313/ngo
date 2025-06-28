@@ -5,19 +5,19 @@ const axios = require('axios');
 const FormData = require('form-data');
 const Impact = require('../models/impactModel');
 
-// ✅ Cloudinary setup
+//  Cloudinary setup
 const cloudinary = require('cloudinary').v2;
 cloudinary.config({
   cloud_name: 'du4tklzpq',
-  api_key: '862668851362822',       // 🔒 Replace with real key
-  api_secret: 'nMqwplSkAD5t6DRK6oMkMCbT3Oo', // 🔒 Replace with real secret
+  api_key: '862668851362822',       //  Replace with real key
+  api_secret: 'nMqwplSkAD5t6DRK6oMkMCbT3Oo', //  Replace with real secret
 });
 
-// 🧠 Multer for memory storage (Cloudinary upload)
+//  Multer for memory storage (Cloudinary upload)
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-// ✅ GET all impacts
+//  GET all impacts
 router.get('/', async (req, res) => {
   try {
     const impacts = await Impact.find().sort({ createdAt: -1 });
@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// ✅ POST new impact (image, title, description)
+//  POST new impact (image, title, description)
 router.post('/upload', upload.single('image'), async (req, res) => {
   try {
     const { title, description } = req.body;
@@ -58,7 +58,7 @@ router.post('/upload', upload.single('image'), async (req, res) => {
   }
 });
 
-// ✅ DELETE impact by ID
+//  DELETE impact by ID
 router.delete('/:id', async (req, res) => {
   try {
     const impact = await Impact.findById(req.params.id);
