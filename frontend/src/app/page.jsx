@@ -7,12 +7,14 @@ import VolunteerFormModal from '../components/VolunteerFormModal';
 import FloatingDonateButton from '../components/FloatingDonateButton';
 import { motion } from 'framer-motion';
 import axios from 'axios';
+// Add at the top
+import toast, { Toaster } from 'react-hot-toast';
+
 
 export default function Home() {
   const [isVolunteerOpen, setVolunteerOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', comment: '' });
   const [comments, setComments] = useState([]);
-  const [showThankYou, setShowThankYou] = useState(false);
     const [galleryImages] = useState([1,2,3,4]);
 
 
@@ -31,23 +33,66 @@ export default function Home() {
 
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!formData.name || !formData.email || !formData.comment) return;
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    try {
-      await axios.post('http://localhost:5000/testimonial', formData);
-      setFormData({ name: '', email: '', comment: '' });
-      setShowThankYou(true);
-      fetchTestimonials();
-      setTimeout(() => setShowThankYou(false), 3000);
-    } catch (err) {
-      console.error('Submit failed:', err);
-    }
+  // Dismiss all existing toasts
+  toast.dismiss(); // this is better than toast.remove() to clear UI
+
+  // Common toast options
+  const toastOptions = {
+    duration: 3000,
+    position: "top-right",
   };
+
+  // Validate name
+  if (!/^[a-zA-Z\s]+$/.test(formData.name)) {
+    toast.error("Name should not contain numbers or special characters.", {
+      id: "name-error",
+      ...toastOptions,
+    });
+    return;
+  }
+
+  // Validate email
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(formData.email)) {
+    toast.error("Please enter a valid email address.", {
+      id: "email-error",
+      ...toastOptions,
+    });
+    return;
+  }
+
+  try {
+    await axios.post("http://localhost:5000/testimonial", formData);
+    setFormData({ name: "", email: "", comment: "" });
+    fetchTestimonials();
+    toast.success("Thank you for your feedback!", {
+      id: "thank-you",
+      ...toastOptions,
+    });
+  } catch (err) {
+    toast.error("Failed to submit comment.", {
+      id: "submit-fail",
+      ...toastOptions,
+    });
+    console.error("Submit failed:", err);
+  }
+};
+
+
+
+
+
+
+
+
 
   return (
     <div className="bg-[#fffaf5] text-[#1c1c1c] font-sans">
+      <Toaster position="top-right" reverseOrder={false} />
+
 
       {/* Hero Section */}
       <section className="relative h-[90vh] min-h-[500px] flex items-center justify-center overflow-hidden">
@@ -210,19 +255,37 @@ export default function Home() {
 
       {/* Testimonials Section */}
     <section className="py-16 px-4 sm:px-6 md:px-16 bg-white text-center">
-        <h2 className="text-3xl font-bold mb-8">What People Say</h2>
-        {comments.map((item, index) => (
-          <motion.blockquote
-            key={index}
-            className="italic max-w-3xl mx-auto mb-6 bg-gray-100 p-4 rounded-xl shadow"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: index * 0.2 }}
-          >
-            "{item.comment}"
-            <p className="mt-2 font-semibold text-right">– {item.name}</p>
-          </motion.blockquote>
-        ))}
+  <h2 className="text-3xl font-bold mb-10">What People Say</h2>
+
+  <div className="max-w-4xl mx-auto space-y-6">
+    {comments.map((item, index) => (
+      <motion.div
+        key={item._id}
+        className="bg-gray-100 p-6 rounded-xl shadow-md text-left"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: index * 0.2 }}
+      >
+        <p className="text-gray-700 text-base leading-relaxed mb-3">"{item.comment}"</p>
+
+        <div className="flex flex-col sm:flex-row justify-between text-sm text-gray-500 mt-4">
+          <div>
+            <span className="font-semibold text-black">{item.name}</span>
+            <span className="mx-1">|</span>
+            <span>{item.email}</span>
+          </div>
+          <div>
+            {new Date(item.createdAt).toLocaleDateString('en-IN', {
+              day: 'numeric',
+              month: 'short',
+              year: 'numeric',
+            })}
+          </div>
+        </div>
+      </motion.div>
+    ))}
+  </div>
+
 
         <div className="mt-10 max-w-xl mx-auto text-left">
           <h3 className="text-xl font-semibold mb-4">Add Your Comment</h3>
@@ -257,7 +320,6 @@ export default function Home() {
             <button type="submit" className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-md transition">
               Submit
             </button>
-            {showThankYou && <p className="text-green-600 mt-2">Thank you for your feedback!</p>}
           </form>
         </div>
       </section>
