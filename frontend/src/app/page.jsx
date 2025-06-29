@@ -9,6 +9,8 @@ import { motion } from 'framer-motion';
 import axios from 'axios';
 // Add at the top
 import toast, { Toaster } from 'react-hot-toast';
+import UpcomingEventsCTA from '../components/UpcomingEventsCTA';
+
 
 
 export default function Home() {
@@ -325,25 +327,30 @@ const handleSubmit = async (e) => {
       </section>
 
 
-      {/* CTA */}
-      <section className="py-16 px-4 sm:px-6 md:px-16 bg-[#fff3e0] text-center">
-        <motion.h2
-          className="text-3xl font-bold mb-4"
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}
-        >
-          Ready to Make a Difference?
-        </motion.h2>
-        <Link href="/hiring">
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md"
-          >
-            Join Us
-          </motion.button>
-        </Link>
-      </section>
+ {/* CTA with Events */}
+<section className="py-16 px-4 sm:px-6 md:px-16 bg-[#f5f0ff] text-center">
+  <UpcomingEventsCTA />
+
+  <motion.h2
+    className="text-3xl font-bold mb-4 mt-8"
+    initial={{ y: 30, opacity: 0 }}
+    whileInView={{ y: 0, opacity: 1 }}
+    transition={{ duration: 0.6 }}
+  >
+    Ready to Make a Difference?
+  </motion.h2>
+
+  <Link href="/hiring">
+    <motion.button
+      whileHover={{ scale: 1.1 }}
+      className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md"
+    >
+      Join Us
+    </motion.button>
+  </Link>
+</section>
+
+
 
      <VolunteerFormModal isOpen={isVolunteerOpen} onClose={() => setVolunteerOpen(false)} />
       <FloatingDonateButton />

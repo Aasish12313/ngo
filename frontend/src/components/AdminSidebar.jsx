@@ -18,7 +18,6 @@ const navItems = [
   { name: 'Messages', href: '/admin/contactMessage', icon: <MessageSquare size={18} /> },
   { name: 'Comments', href: '/admin/comments', icon: <FileInput size={18} /> },
   { name: 'Donations', href: '/admin/dnoation', icon: <Inbox size={18} /> },
-  { name: 'Settings', href: '/admin/settings', icon: <Settings size={18} /> },
 ];
 
 export default function AdminSidebar({ isOpen, toggleSidebar }) {
